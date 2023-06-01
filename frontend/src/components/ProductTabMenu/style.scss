@@ -1,0 +1,149 @@
+.productTabMenu {
+  margin-top: 50px;
+  border: 1px solid #dddddd;
+
+  .prdTab {
+    border-bottom: 1px solid #dddddd;
+
+    button {
+      padding: 0;
+
+      span {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0;
+        color: #444 !important;
+      }
+    }
+
+    .prdTabIndicator {
+      background: #fbf8f1;
+      height: 100%;
+      z-index: -1;
+    }
+  }
+
+  .postDescription {
+    p {
+      line-height: 28px;
+      font-size: 13px;
+    }
+  }
+
+  .faqContent {
+    button {
+      display: block;
+      text-align: left;
+      background: #f9f9f9;
+      margin-top: 10px;
+      padding: 12px 10px;
+      font-weight: 600;
+      text-transform: capitalize;
+      font-size: 14px;
+      letter-spacing: 0;
+      color: #555;
+      border-radius: 0;
+
+      i {
+        float: right;
+        font-size: 11px;
+        color: #646262;
+        margin-top: 7px;
+      }
+    }
+
+    .faqBodyText {
+      background: #f9f9f9;
+      border-top: 1px solid #f0efef;
+
+      p {
+        padding: 10px;
+        line-height: 28px;
+        font-size: 13px;
+      }
+    }
+  }
+
+  .faqReview {
+    padding: 0;
+
+    .reviewItems {
+      overflow: hidden;
+      display: block;
+      border-bottom: 1px solid #f9f9f9;
+      padding: 20px 0;
+      
+
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .reviewImg {
+        width: 60px;
+        float: left;
+        margin-right: 15px;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+
+        img {
+          display: block;
+        }
+      }
+
+      .reviewContent {
+        overflow: hidden;
+
+        h2 {
+          a {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 10px;
+            color: #222;
+          }
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 25px;
+        }
+      }
+
+      .reviewItems {
+        margin-top: 15px;
+
+        &:last-child {
+          border-bottom: none;
+          padding-bottom: 0;
+          border-top: 1px solid #f9f9f9;
+        }
+      }
+    }
+  }
+
+  .reviewForm {
+    margin-top: 60px;
+
+    .formDefault {
+      label {
+        font-size: 18px;
+        transform: translate(14px, -12px) scale(0.75);
+        background: #fff;
+      }
+
+      input {
+        font-size: 14px;
+        background: #fff;
+      }
+    }
+    .errorMessage{
+      color: red;
+    }
+
+    .theme-btn{
+      padding: 10px 25px;
+      color: #fff;
+    }
+  }
+}

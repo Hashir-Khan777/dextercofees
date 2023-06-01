@@ -1,0 +1,124 @@
+/*---------------------------
+	Fonts
+----------------------------*/
+
+/* Roboto Font Family */
+@font-face {
+    font-family: "Roboto Black";
+    src: local("Roboto-Black"),
+      url("../../fonts/text-fonts/Roboto-Black.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Roboto BlackItalic";
+    src: local("Roboto-BlackItalic"),
+      url("../../fonts/text-fonts/Roboto-BlackItalic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Roboto Bold";
+    src: local("Roboto-Bold"),
+      url("../../fonts/text-fonts/Roboto-Bold.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Roboto BoldItalic";
+    src: local("Roboto-BoldItalic"),
+      url("../../fonts/text-fonts/Roboto-BoldItalic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Roboto Italic";
+    src: local("Roboto-Italic"),
+      url("../../fonts/text-fonts/Roboto-Italic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Roboto Light";
+    src: local("Roboto-Light"),
+      url("../../fonts/text-fonts/Roboto-Light.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Roboto LightItalic";
+    src: local("Roboto-LightItalic"),
+      url("../../fonts/text-fonts/Roboto-LightItalic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Roboto Regular";
+    src: local("Roboto-Regular"),
+      url("../../fonts/text-fonts/Roboto-Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Roboto Medium";
+    src: local("Roboto-Medium"),
+      url("../../fonts/text-fonts/Roboto-Medium.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Roboto MediumItalic";
+    src: local("Roboto-MediumItalic"),
+      url("../../fonts/text-fonts/Roboto-MediumItalic.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Roboto Thin";
+    src: local("Roboto-Thin"),
+      url("../../fonts/text-fonts/Roboto-Thin.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Roboto ThinItalic";
+    src: local("Roboto-ThinItalic"),
+      url("../../fonts/text-fonts/Roboto-ThinItalic.ttf") format("truetype");
+  }
+  
+  /* Oswald Font Family */
+  @font-face {
+    font-family: "Oswald Light";
+    src: local("Oswald-Light"),
+      url("../../fonts/text-fonts/Oswald-Light.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Oswald ExtraLight";
+    src: local("Oswald-ExtraLight"),
+      url("../../fonts/text-fonts/Oswald-ExtraLight.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Oswald Regular";
+    src: local("Oswald-Regular"),
+      url("../../fonts/text-fonts/Oswald-Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Oswald Medium";
+    src: local("Oswald-Medium"),
+      url("../../fonts/text-fonts/Oswald-Medium.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Oswald SemiBold";
+    src: local("Oswald-SemiBold"),
+      url("../../fonts/text-fonts/Oswald-SemiBold.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Oswald Bold";
+    src: local("Oswald-Bold"),
+      url("../../fonts/text-fonts/Oswald-Bold.ttf") format("truetype");
+  }
+  
+
+
+
+
+// fonts
+$base-font-size: 15;
+$base-font: 'Roboto Regular';
+$heading-font: 'Now';
+// $heading-font-s2: 'Conv_Now-Bold';
+// $heading-font-s3: 'Barlow Condensed', sans-serif;
+
+
+
+// color
+$dark-gray: #30180d;
+$white: #fff;
+$black: #000;
+$small-black: #333;
+
+$theme-primary-color: #C7A17A;
+$theme-secondary-color: #bf692d;
+$body-bg-color: #f2f0f0;
+$section-bg-color: #fdf5ee;
+$text-color: #696664;
+$heading-color: $dark-gray;
+$border-color: #ebebeb;

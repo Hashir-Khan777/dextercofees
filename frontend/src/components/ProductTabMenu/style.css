@@ -1,0 +1,117 @@
+.productTabMenu {
+  margin-top: 50px;
+  border: 1px solid #dddddd;
+}
+.productTabMenu .prdTab {
+  border-bottom: 1px solid #dddddd;
+}
+.productTabMenu .prdTab button {
+  padding: 0;
+}
+.productTabMenu .prdTab button span {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: #444 !important;
+}
+.productTabMenu .prdTab .prdTabIndicator {
+  background: #fbf8f1;
+  height: 100%;
+  z-index: -1;
+}
+.productTabMenu .postDescription p {
+  line-height: 28px;
+  font-size: 13px;
+}
+.productTabMenu .faqContent button {
+  display: block;
+  text-align: left;
+  background: #f9f9f9;
+  margin-top: 10px;
+  padding: 12px 10px;
+  font-weight: 600;
+  text-transform: capitalize;
+  font-size: 14px;
+  letter-spacing: 0;
+  color: #555;
+  border-radius: 0;
+}
+.productTabMenu .faqContent button i {
+  float: right;
+  font-size: 11px;
+  color: #646262;
+  margin-top: 7px;
+}
+.productTabMenu .faqContent .faqBodyText {
+  background: #f9f9f9;
+  border-top: 1px solid #f0efef;
+}
+.productTabMenu .faqContent .faqBodyText p {
+  padding: 10px;
+  line-height: 28px;
+  font-size: 13px;
+}
+.productTabMenu .faqReview {
+  padding: 0;
+}
+.productTabMenu .faqReview .reviewItems {
+  overflow: hidden;
+  display: block;
+  border-bottom: 1px solid #f9f9f9;
+  padding: 20px 0;
+}
+.productTabMenu .faqReview .reviewItems:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.productTabMenu .faqReview .reviewItems .reviewImg {
+  width: 60px;
+  float: left;
+  margin-right: 15px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+.productTabMenu .faqReview .reviewItems .reviewImg img {
+  display: block;
+}
+.productTabMenu .faqReview .reviewItems .reviewContent {
+  overflow: hidden;
+}
+.productTabMenu .faqReview .reviewItems .reviewContent h2 a {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 10px;
+  color: #222;
+}
+.productTabMenu .faqReview .reviewItems .reviewContent p {
+  font-size: 14px;
+  line-height: 25px;
+}
+.productTabMenu .faqReview .reviewItems .reviewItems {
+  margin-top: 15px;
+}
+.productTabMenu .faqReview .reviewItems .reviewItems:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  border-top: 1px solid #f9f9f9;
+}
+.productTabMenu .reviewForm {
+  margin-top: 60px;
+}
+.productTabMenu .reviewForm .formDefault label {
+  font-size: 18px;
+  transform: translate(14px, -12px) scale(0.75);
+  background: #fff;
+}
+.productTabMenu .reviewForm .formDefault input {
+  font-size: 14px;
+  background: #fff;
+}
+.productTabMenu .reviewForm .errorMessage {
+  color: red;
+}
+.productTabMenu .reviewForm .theme-btn {
+  padding: 10px 25px;
+  color: #fff;
+}/*# sourceMappingURL=style.css.map */
