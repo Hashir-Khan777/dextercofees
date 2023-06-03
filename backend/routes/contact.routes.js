@@ -13,7 +13,7 @@ ContactRouter.post("/", async (req, res) => {
     Subject: ${subject}
     Message: ${message}
     `;
-    await MailService.sendMail("khnhashir555@gmail.com", subject, text);
+    await MailService.sendMail("customercare@dextercoffees.com", subject, text);
     return res.status(200).send({ message: "Thanks for your message" });
   } catch (err) {
     res.status(500).send(err);
