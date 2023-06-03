@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Homepage from "../HomePage";
 import Homepage2 from "../HomePage2";
@@ -25,8 +25,18 @@ import SignUpPage from "../SignUpPage";
 import ForgotPassword from "../ForgotPassword";
 import Verification from "../VerificationPage";
 import ResetPassword from "../ResetPassword";
+import { useSelector } from "react-redux";
+
+const PrivateRoute = ({ children, data }) => {
+  if (!data?.email) {
+    return <Navigate to="/login" />;
+  }
+  return children;
+};
 
 const AllRoute = () => {
+  const { data } = useSelector((state) => state.authReducer);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -37,10 +47,31 @@ const AllRoute = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/shop" element={<ShopPage />} />
           <Route path="/product-single/:id" element={<ProductDetailsPage />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route
+            path="/checkout"
+            element={
+              <PrivateRoute data={data}>
+                <CheckoutPage />
+              </PrivateRoute>
+            }
+          />
           <Route path="/order_received" element={<OrderRecived />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/wishlist" element={<WishlistPage />} />
+          <Route
+            path="/cart"
+            element={
+              <PrivateRoute data={data}>
+                <CartPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/wishlist"
+            element={
+              <PrivateRoute data={data}>
+                <WishlistPage />
+              </PrivateRoute>
+            }
+          />
           <Route path="/project-single" element={<ProjectSinglePage />} />
           <Route path="/project" element={<ProjectPage />} />
           <Route path="/404" element={<ErrorPage />} />

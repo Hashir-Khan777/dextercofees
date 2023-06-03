@@ -238,3 +238,26 @@ export const logout = () => {
 
   toast.success("Logout successfully");
 };
+
+export const sendMessage = (contactForm) => async (dispatch) => {
+  dispatch({
+    type: types.CONTACT_REQUEST,
+  });
+  try {
+    await axios.post(
+      `${process.env.REACT_APP_API_URL}/api/contact`,
+      contactForm
+    );
+    toast.success("Thanks for your message");
+    dispatch({
+      type: types.CONTACT_SUCCESS,
+    });
+  } catch (err) {
+    dispatch({
+      type: types.CONTACT_FAIL,
+    });
+    toast.error(
+      err.response.data.message ? err.response.data.message : err.message
+    );
+  }
+};

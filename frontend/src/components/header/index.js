@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect, useDispatch } from "react-redux";
 import Logo from "../../images/dexter-logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MobileMenu from "../../components/MobileMenu";
 import min3 from "../../images/shop/mini-cart/bee2.png";
 import { totalPrice } from "../../utils";
@@ -14,17 +14,26 @@ const Header = (props) => {
   const [isCartShow, setIsCartShow] = useState(false);
   const [isWishlistShow, setIsWishlistShow] = useState(false);
   const [isprofileShow, setIsprofileShow] = useState(false);
+  const push = useNavigate();
 
   const dispatch = useDispatch();
 
   const cartHandler = () => {
-    setIsCartShow(!isCartShow);
-    setIsWishlistShow(false);
+    if (cookies.get("_user")) {
+      setIsCartShow(!isCartShow);
+      setIsWishlistShow(false);
+    } else {
+      push("/login");
+    }
   };
 
   const wishlistHandler = () => {
-    setIsWishlistShow(!isWishlistShow);
-    setIsCartShow(false);
+    if (cookies.get("_user")) {
+      setIsWishlistShow(!isWishlistShow);
+      setIsCartShow(false);
+    } else {
+      push("/login");
+    }
   };
 
   const profileHandler = () => {
@@ -250,12 +259,10 @@ const Header = (props) => {
                   </div>
                 </div>
                 <div className="mini-cart">
-                  {cookies.get("_user") ? (
-                    <button onClick={cartHandler} className="cart-toggle-btn">
-                      <i className="fi flaticon-bag"></i>{" "}
-                      <span className="cart-count">{carts.length}</span>
-                    </button>
-                  ) : null}
+                  <button onClick={cartHandler} className="cart-toggle-btn">
+                    <i className="fi flaticon-bag"></i>{" "}
+                    <span className="cart-count">{carts.length}</span>
+                  </button>
                   <div
                     className={`mini-cart-content ${
                       isCartShow ? "mini-cart-content-toggle" : ""
@@ -324,15 +331,13 @@ const Header = (props) => {
                   </div>
                 </div>
                 <div className="header-wishlist-form-wrapper">
-                  {cookies.get("_user") ? (
-                    <button
-                      onClick={wishlistHandler}
-                      className="wishlist-toggle-btn"
-                    >
-                      <i className="fi flaticon-heart"></i>{" "}
-                      <span className="cart-count">{wishs.length}</span>{" "}
-                    </button>
-                  ) : null}
+                  <button
+                    onClick={wishlistHandler}
+                    className="wishlist-toggle-btn"
+                  >
+                    <i className="fi flaticon-heart"></i>{" "}
+                    <span className="cart-count">{wishs.length}</span>{" "}
+                  </button>
                   <div
                     className={`mini-wislist-content ${
                       isWishlistShow ? "mini-cart-content-toggle" : ""

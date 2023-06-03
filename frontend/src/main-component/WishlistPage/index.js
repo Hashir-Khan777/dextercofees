@@ -9,10 +9,8 @@ import { removeFromWishList, addToCart } from "../../store/actions/action";
 import { ImBin } from "react-icons/im";
 import { BsCart3 } from "react-icons/bs";
 
-
 const WishlistPage = (props) => {
   const { wishs } = props;
-
 
   return (
     <Fragment>
@@ -36,12 +34,14 @@ const WishlistPage = (props) => {
                         </tr>
                       </thead>
                       <tbody>
-                        {wishs &&
-                          wishs.length > 0 &&
+                        {wishs && wishs.length > 0 ? (
                           wishs.map((wish, crt) => (
                             <tr key={crt}>
                               <td className="images">
-                                <img src="https://www.dextercoffees.com/assets/images/shop/Dexter_Cafe.png" alt="" />
+                                <img
+                                  src="https://www.dextercoffees.com/assets/images/shop/Dexter_Cafe.png"
+                                  alt=""
+                                />
                               </td>
                               <td className="product">
                                 <ul>
@@ -74,7 +74,10 @@ const WishlistPage = (props) => {
                                 </ul>
                               </td>
                             </tr>
-                          ))}
+                          ))
+                        ) : (
+                          <p>No Data Found</p>
+                        )}
                       </tbody>
                     </table>
                   </form>

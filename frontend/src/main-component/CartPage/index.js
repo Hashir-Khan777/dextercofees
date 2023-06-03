@@ -6,7 +6,7 @@ import Scrollbar from "../../components/scrollbar";
 import { Button, Grid } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import {totalPrice} from "../../utils";
+import { totalPrice } from "../../utils";
 import {
   removeFromCart,
   incrementQuantity,
@@ -16,14 +16,12 @@ import { ImBin } from "react-icons/im";
 import { GrFormSubtract } from "react-icons/gr";
 import { IoMdAdd } from "react-icons/io";
 
-
 const CartPage = (props) => {
   const ClickHandler = () => {
     window.scrollTo(10, 0);
   };
 
   const { carts } = props;
-
 
   return (
     <Fragment>
@@ -48,12 +46,14 @@ const CartPage = (props) => {
                         </tr>
                       </thead>
                       <tbody>
-                        {carts &&
-                          carts.length > 0 &&
+                        {carts && carts.length > 0 ? (
                           carts.map((catItem, crt) => (
                             <tr key={crt}>
                               <td className="images">
-                                <img src="https://www.dextercoffees.com/assets/images/shop/Dexter_Cafe.png" alt="" />
+                                <img
+                                  src="https://www.dextercoffees.com/assets/images/shop/Dexter_Cafe.png"
+                                  alt=""
+                                />
                               </td>
                               <td className="product">
                                 <ul>
@@ -87,8 +87,12 @@ const CartPage = (props) => {
                                   </Grid>
                                 </div>
                               </td>
-                              <td className="ptice">${catItem.qty * catItem.price}</td>
-                              <td className="stock">${catItem.qty * catItem.price}</td>
+                              <td className="ptice">
+                                ${catItem.qty * catItem.price}
+                              </td>
+                              <td className="stock">
+                                ${catItem.qty * catItem.price}
+                              </td>
                               <td className="action">
                                 <ul>
                                   <li
@@ -103,7 +107,10 @@ const CartPage = (props) => {
                                 </ul>
                               </td>
                             </tr>
-                          ))}
+                          ))
+                        ) : (
+                          <p>No Data Found</p>
+                        )}
                       </tbody>
                     </table>
                   </form>
