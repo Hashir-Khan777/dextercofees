@@ -44,6 +44,12 @@ const Verification = () => {
     }
   }, [data]);
 
+  useEffect(() => {
+    if (!cookies.get("_token")) {
+      push("/register");
+    }
+  }, []);
+
   return (
     <Fragment>
       <Grid className="loginWrapper">

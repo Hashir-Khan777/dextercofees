@@ -1,4 +1,8 @@
-import { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST } from "../actions/type";
+import {
+  ADD_TO_WISHLIST,
+  DELETE_WISHLIST,
+  REMOVE_FROM_WISHLIST,
+} from "../actions/type";
 import { toast } from "react-toastify";
 
 const init = {

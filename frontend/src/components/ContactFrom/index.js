@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendMessage } from "../../store/actions/action";
+import { CircularProgress } from "@material-ui/core";
 
 const ContactForm = () => {
   const [state, setState] = useState({
@@ -14,7 +15,7 @@ const ContactForm = () => {
   });
 
   const dispatch = useDispatch();
-  const { loading } = useSelector((statde) => state.contactReducer);
+  const { loading } = useSelector((state) => state.contactReducer);
 
   const changeHandler = (e) => {
     setState({

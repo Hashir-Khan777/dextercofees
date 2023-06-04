@@ -1,6 +1,7 @@
 import {
   ADD_TO_CART,
   DECREMENT_QUANTITY,
+  DELETE_CART,
   INCREMENT_QUANTITY,
   REMOVE_FROM_CART,
 } from "../actions/type";
