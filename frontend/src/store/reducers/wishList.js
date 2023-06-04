@@ -34,6 +34,12 @@ export const wishListReducer = (state = init, action) => {
         (product) => product.id !== w_productId
       );
       return { ...state, w_list };
+
+    case DELETE_WISHLIST:
+      return {
+        w_list: [],
+      };
+
     default:
       return state;
   }

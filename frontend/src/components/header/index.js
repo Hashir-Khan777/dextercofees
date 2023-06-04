@@ -8,7 +8,11 @@ import { totalPrice } from "../../utils";
 import { removeFromCart, removeFromWishList } from "../../store/actions/action";
 import Cookies from "universal-cookie";
 import { useState } from "react";
-import { LOGOUT_SUCCESS } from "../../store/actions/type";
+import {
+  DELETE_CART,
+  DELETE_WISHLIST,
+  LOGOUT_SUCCESS,
+} from "../../store/actions/type";
 
 const Header = (props) => {
   const [isCartShow, setIsCartShow] = useState(false);
@@ -49,6 +53,8 @@ const Header = (props) => {
   const logout = () => {
     cookies.remove("_user");
     dispatch({ type: LOGOUT_SUCCESS });
+    dispatch({ type: DELETE_CART });
+    dispatch({ type: DELETE_WISHLIST });
     window.scrollTo(10, 0);
   };
 

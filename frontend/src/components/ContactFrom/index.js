@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { sendMessage } from "../../store/actions/action";
 
 const ContactForm = () => {
@@ -14,6 +14,7 @@ const ContactForm = () => {
   });
 
   const dispatch = useDispatch();
+  const { loading } = useSelector((statde) => state.contactReducer);
 
   const changeHandler = (e) => {
     setState({
@@ -92,9 +93,9 @@ const ContactForm = () => {
 
     console.log(Object.keys(state.error).length);
 
-    // if (!Object.keys(state.error).length) {
-    //   dispatch(sendMessage(state));
-    // }
+    if (!Object.keys(state.error).length) {
+      dispatch(sendMessage(state));
+    }
   };
 
   return (
@@ -163,9 +164,14 @@ const ContactForm = () => {
           <div className="form-submit">
             <button
               type="submit"
+              disabled={loading}
               className="btn btn_primary text-uppercase mt-5"
             >
-              Send Message
+              {loading ? (
+                <CircularProgress color="#fff" size={20} />
+              ) : (
+                "Send Message"
+              )}
             </button>
           </div>
         </div>
