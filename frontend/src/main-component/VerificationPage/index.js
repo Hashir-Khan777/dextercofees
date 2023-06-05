@@ -21,7 +21,7 @@ const Verification = () => {
     code: "",
   });
 
-  const { loading, data } = useSelector((state) => state.authReducer);
+  const { loading, data, token } = useSelector((state) => state.authReducer);
 
   const changeHandler = (e) => {
     setValue({ code: e });
@@ -45,10 +45,10 @@ const Verification = () => {
   }, [data]);
 
   useEffect(() => {
-    if (!cookies.get("_token")) {
+    if (!token) {
       push("/register");
     }
-  }, []);
+  }, [token]);
 
   return (
     <Fragment>
