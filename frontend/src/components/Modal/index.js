@@ -71,7 +71,7 @@ const DefaultModal = ({
                   </div>
                 </div>
               </div>
-              <div className="col-lg-7 px-5 pb-5">
+              <div className="col-lg-7 px-4 px-sm-5 pb-5">
                 <div className="product-single-content">
                   <h5>{product && product.title}</h5>
                   <h6>{product && product.price} USD</h6>

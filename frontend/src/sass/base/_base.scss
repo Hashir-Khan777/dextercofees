@@ -40,6 +40,28 @@ body {
         color: #666666;
     }
 }
+.product-single-content {
+    .btn {
+        @media(max-width:475px){
+			padding: 18px 30px;
+            margin-left: 1rem !important;
+		}
+    }
+}
+
+.cart-plus-minus {
+    @media(max-width:475px){
+        .qtybutton {
+            height: 35px !important;
+            width: 40px !important;
+            min-width: 50px !important;
+        }
+        input {
+            width: 114px !important;
+            height: 48px !important;
+        }
+    }
+}
 
 .product-price {
     @media(max-width:768px){
