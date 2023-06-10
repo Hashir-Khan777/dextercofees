@@ -16,7 +16,7 @@ export const wishListReducer = (state = init, action) => {
       if (
         state.w_list.findIndex((product) => product.id === productId) !== -1
       ) {
-        toast.error("Item Removed from Wishlist");
+        toast.success("Item Removed from Wishlist");
         const w_list = state.w_list.filter(
           (product) => product.id !== productId
         );

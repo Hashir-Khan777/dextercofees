@@ -48,11 +48,11 @@ const ForgotPassword = (props) => {
   };
 
   useEffect(() => {
-    if (cookies.get("_resettoken")) {
+    if (resettoken) {
       setValue({
         email: "",
       });
-      push("/reset-password");
+      push("/");
     }
   }, [resettoken]);
 
@@ -61,9 +61,7 @@ const ForgotPassword = (props) => {
       <div className="ps-4 pb-3 pb-md-5">
         <MdKeyboardReturn color="#666666" size={28} />
         <Link to={"/"}>
-          <span className="ps-3 back-to-home">
-            Return to Home Page
-          </span>
+          <span className="ps-3 back-to-home">Return to Home Page</span>
         </Link>
       </div>
       <Grid className="loginForm">

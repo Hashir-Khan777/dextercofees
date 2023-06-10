@@ -63,7 +63,7 @@ export const addToWishList = (product) => (dispatch) => {
 };
 
 export const removeFromWishList = (id) => (dispatch) => {
-  toast.error("Item removed from WishList");
+  toast.success("Item removed from WishList");
   dispatch({
     type: REMOVE_FROM_WISHLIST,
     id,
@@ -185,15 +185,10 @@ export const forgotPassword = (forgotPasswordForm) => async (dispatch) => {
       `${process.env.REACT_APP_API_URL}/api/auth/forgot/password`,
       forgotPasswordForm
     );
-    const expires = new Date(date.setHours(date.getHours() + 1));
-    cookies.set("_resettoken", data.token, {
-      path: "/",
-      secure: true,
-      expires,
-    });
+    toast.success("Reset password link has been sent to your email");
     dispatch({
       type: types.FORGOT_PASSWORD_SUCCESS,
-      payload: data.token,
+      payload: true,
     });
   } catch (err) {
     dispatch({
@@ -212,14 +207,14 @@ export const resetPassword = (resetPasswordForm) => async (dispatch) => {
   try {
     await axios.post(
       `${process.env.REACT_APP_API_URL}/api/auth/reset/password`,
-      resetPasswordForm,
-      { headers: { Authorization: `Bearer ${cookies.get("_resettoken")}` } }
+      resetPasswordForm.data,
+      { headers: { Authorization: `Bearer ${resetPasswordForm.token}` } }
     );
-    cookies.remove("_resettoken");
-    toast.success("Password has been reset");
     dispatch({
       type: types.RESET_PASSWORD_SUCCESS,
     });
+    toast.success("Password has been reset");
+    resetPasswordForm.push("/login");
   } catch (err) {
     dispatch({
       type: types.RESET_PASSWORD_FAIL,

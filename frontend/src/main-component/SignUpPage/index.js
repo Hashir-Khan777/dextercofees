@@ -111,7 +111,7 @@ const SignUpPage = (props) => {
               {validator.message(
                 "full name",
                 value.full_name,
-                "required|alpha"
+                "required"
               )}
             </Grid>
             <Grid item xs={12}>

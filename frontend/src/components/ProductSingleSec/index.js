@@ -52,30 +52,30 @@ const ProductSingleSec = ({ item, addToCart }) => {
 
   return (
     <>
-    <div className="product-single-section section-padding">
-      <div className="container">
-        <div className="product-details">
-          <div className="row align-items-center">
-            <div className="col-lg-5">
-              <div className="product-single-img">
-                <div className="product-active">
-                  <div className="item">
-                    <Zoom>
-                      <img
-                        alt="Dexter Coffee"
-                        src={item.proImg}
-                        // width="500"
-                      />
-                    </Zoom>
+      <div className="product-single-section section-padding">
+        <div className="container">
+          <div className="product-details">
+            <div className="row align-items-center">
+              <div className="col-lg-5">
+                <div className="product-single-img">
+                  <div className="product-active">
+                    <div className="item">
+                      <Zoom>
+                        <img
+                          alt="Dexter Coffee"
+                          src={item.proImg}
+                          // width="500"
+                        />
+                      </Zoom>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-7">
-              <div className="product-single-content">
-                <h5>{item.title}</h5>
-                <h6>${item.price}</h6>
-                {/* <ul className="rating">
+              <div className="col-lg-7">
+                <div className="product-single-content">
+                  <h5>{item.title}</h5>
+                  <h6>${item.price}</h6>
+                  {/* <ul className="rating">
                   <li>
                     <i className="fa fa-star" aria-hidden="true"></i>
                   </li>
@@ -92,10 +92,8 @@ const ProductSingleSec = ({ item, addToCart }) => {
                     <i className="fa fa-star" aria-hidden="true"></i>
                   </li>
                 </ul> */}
-                <p>
-                  {item.description}
-                </p>
-                {/* <div className="product-filter-item color">
+                  <p>{item.description}</p>
+                  {/* <div className="product-filter-item color">
                   <div className="color-name">
                     <span>Color :</span>
                     <ul>
@@ -114,128 +112,135 @@ const ProductSingleSec = ({ item, addToCart }) => {
                     </ul>
                   </div>
                 </div> */}
-                <div className="product-filter-item color filter-size pt-3">
-                  <div className="color-name">
-                    <span>Roast Type :</span>
+                  <div className="product-filter-item color filter-size pt-3">
+                    <div className="color-name">
+                      <span>Roast Type :</span>
                       <div className="ms-3 roast-type">{item.brand}</div>
+                    </div>
+                  </div>
+                  <div className="pro-single-btn d-flex align-items-center">
+                    <Grid className="quantity cart-plus-minus mt-2">
+                      <Button
+                        className="dec qtybutton"
+                        onClick={() => setQty(qty <= 1 ? 1 : qty - 1)}
+                      >
+                        -
+                      </Button>
+                      <input
+                        value={qty}
+                        onChange={() => setQty(qty)}
+                        type="text"
+                      />
+                      <Button
+                        className="inc qtybutton"
+                        onClick={() => setQty(qty + 1)}
+                      >
+                        +
+                      </Button>
+                    </Grid>
+                    <a
+                      className="btn btn_primary text-uppercase ms-4"
+                      onClick={() => addToCartProduct(item, qty)}
+                    >
+                      Add to cart
+                    </a>
                   </div>
                 </div>
-                <div className="pro-single-btn d-flex align-items-center">
-                  <Grid className="quantity cart-plus-minus mt-2">
-                    <Button
-                      className="dec qtybutton"
-                      onClick={() => setQty(qty <= 1 ? 1 : qty - 1)}
-                    >
-                      -
-                    </Button>
-                    <input
-                      value={qty}
-                      onChange={() => setQty(qty)}
-                      type="text"
-                    />
-                    <Button
-                      className="inc qtybutton"
-                      onClick={() => setQty(qty + 1)}
-                    >
-                      +
-                    </Button>
-                  </Grid>
-                  <a
-                    className="btn btn_primary text-uppercase ms-4"
-                    onClick={() => addToCart(item, qty)}
-                  >
-                    Add to cart
-                  </a>
-                </div>
               </div>
             </div>
           </div>
+          {/* <ProductTabMenu /> */}
         </div>
-        {/* <ProductTabMenu /> */}
-
       </div>
-    </div>
-        <section className="product-area section-padding">
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-lg-6 col-md-8">
-            <div className="category-title">
-              <div className='d-flex align-items-center small-headings mb-2'>
-                  <FaCoffee color='#C7A17A' size={20} />
-                  <p className='text-uppercase ps-2 pb-0 mb-0'>DEXTER COFFEE SHOP</p>
+      <section className="product-area section-padding">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6 col-md-8">
+              <div className="category-title">
+                <div className="d-flex align-items-center small-headings mb-2">
+                  <FaCoffee color="#C7A17A" size={20} />
+                  <p className="text-uppercase ps-2 pb-0 mb-0">
+                    DEXTER COFFEE SHOP
+                  </p>
+                </div>
+                <h2>OUR RELATED PRODUCT</h2>
               </div>
-              <h2>OUR RELATED PRODUCT</h2>
+            </div>
+            <div className="col-lg-6 col-md-4 category-title">
+              <div className="abtn_wrap text-lg-end text-md-end btn-end">
+                <Link
+                  to={"/shop"}
+                  className="btn btn_border border_black text-uppercase"
+                >
+                  See all products
+                </Link>
+              </div>
             </div>
           </div>
-          <div className="col-lg-6 col-md-4 category-title">
-            <div className="abtn_wrap text-lg-end text-md-end btn-end">
-              <Link to={"/shop"} className="btn btn_border border_black text-uppercase">
-                See all products
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="product-wrap">
-          <div className="row align-items-center justify-content-start">
-            {products.length > 0 &&
-              products.slice(0, 4).map((product, pitem) => (
-                <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 shop-items" key={pitem}>
-                  <div className="product-item">
-                    <div className="product-img p-3">
-                      <img src={product.proImg} alt="" />
-                      <ul>
-                        <li>
-                          <button
-                            data-bs-toggle="tooltip"
-                            data-bs-html="true"
-                            title="Add to Cart"
-                            onClick={() => addToCartProduct(product)}
-                          >
-                            <i className="fi flaticon-shopping-cart"></i>
-                          </button>
-                        </li>
-                        <li>
-                          <button
-                            data-bs-toggle="tooltip"
-                            data-bs-html="true"
-                            title="Quick View"
-                            onClick={() => handleClickOpen(product)}
-                          >
-                            <i className="fi ti-eye"></i>
-                          </button>
-                        </li>
-                        <li>
-                          <button
-                            data-bs-toggle="tooltip"
-                            data-bs-html="true"
-                            title="Add to Wishlist"
-                            onClick={() => addToWishListProduct(product)}
-                          >
-                            <i className="fi flaticon-like"></i>
-                          </button>
-                        </li>
-                      </ul>
-                      <div className="offer-thumb">
-                        <span>{product.offer}</span>
-                      </div>
-                    </div>
-                    <div className="product-content">
-                      <h3 className="text-uppercase">
-                        <Link
-                          onClick={ClickHandler}
-                          to={`/product-single/${product.id}`}
-                        >
-                          {product.title}
-                        </Link>
-                      </h3>
-                      <div className="product-btm">
-                        <div className="product-price">
-                          <ul>
-                            <li>${product.price}</li>
-                            <li>${product.delPrice}</li>
-                          </ul>
+          <div className="product-wrap">
+            <div className="row align-items-center justify-content-start">
+              {products.length > 0 &&
+                products.slice(0, 4).map((product, pitem) => (
+                  <div
+                    className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 shop-items"
+                    key={pitem}
+                  >
+                    <div className="product-item">
+                      <div className="product-img p-3">
+                        <img src={product.proImg} alt="" />
+                        <ul>
+                          <li>
+                            <button
+                              data-bs-toggle="tooltip"
+                              data-bs-html="true"
+                              title="Add to Cart"
+                              onClick={() => addToCartProduct(product)}
+                            >
+                              <i className="fi flaticon-shopping-cart"></i>
+                            </button>
+                          </li>
+                          <li>
+                            <button
+                              data-bs-toggle="tooltip"
+                              data-bs-html="true"
+                              title="Quick View"
+                              onClick={() => handleClickOpen(product)}
+                            >
+                              <i className="fi ti-eye"></i>
+                            </button>
+                          </li>
+                          <li>
+                            <button
+                              data-bs-toggle="tooltip"
+                              data-bs-html="true"
+                              title="Add to Wishlist"
+                              onClick={() => addToWishListProduct(product)}
+                            >
+                              <i className="fi flaticon-like"></i>
+                            </button>
+                          </li>
+                        </ul>
+                        <div className="offer-thumb">
+                          <span>{product.offer}</span>
                         </div>
-                        {/* <div className="product-ratting">
+                      </div>
+                      <div className="product-content">
+                        <h3 className="text-uppercase">
+                          <Link
+                            onClick={ClickHandler}
+                            to={`/product-single/${product.id}`}
+                          >
+                            {product.title}
+                          </Link>
+                        </h3>
+                        <div className="product-btm">
+                          <div className="product-price">
+                            <ul>
+                              <li>${product.price}</li>
+                              <li>${product.delPrice}</li>
+                            </ul>
+                          </div>
+                          {/* <div className="product-ratting">
                           <ul>
                             <li>
                               <i className="fa fa-star" aria-hidden="true"></i>
@@ -254,21 +259,21 @@ const ProductSingleSec = ({ item, addToCart }) => {
                             </li>
                           </ul>
                         </div> */}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+            </div>
           </div>
         </div>
-      </div>
-      <DefaultModal
-        addToCartProduct={addToCartProduct}
-        open={open}
-        onClose={handleClose}
-        product={state}
-      />
-    </section>
+        <DefaultModal
+          addToCartProduct={addToCartProduct}
+          open={open}
+          onClose={handleClose}
+          product={state}
+        />
+      </section>
     </>
   );
 };

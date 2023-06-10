@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendMessage } from "../../store/actions/action";
 import { CircularProgress } from "@material-ui/core";
+import SimpleReactValidator from "simple-react-validator";
+import { toast } from "react-toastify";
 
 const ContactForm = () => {
   const [state, setState] = useState({
@@ -16,6 +18,11 @@ const ContactForm = () => {
 
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.contactReducer);
+  const [validator] = React.useState(
+    new SimpleReactValidator({
+      className: "errorMessage",
+    })
+  );
 
   const changeHandler = (e) => {
     setState({
@@ -26,76 +33,12 @@ const ContactForm = () => {
 
   const subimtHandler = (e) => {
     e.preventDefault();
-
-    for (var i = 0; i < Object.keys(state).length; i++) {
-      if (typeof state[Object.keys(state)[i]] == "string") {
-        if (state[Object.keys(state)[i]] == "") {
-          setState((prev) => ({
-            ...state,
-            error: {
-              ...state.error,
-              [Object.keys(prev)[i]]: `Please enter your name`,
-            },
-          }));
-          console.log(state.error, Object.keys(state)[i]);
-        }
-      }
-    }
-
-    // if (state.name == "") {
-    //   setState({
-    //     ...state,
-    //     error: {
-    //       ...state.error,
-    //       name: "Please enter your name",
-    //     },
-    //   });
-    // }
-
-    // if (state.email == "") {
-    //   setState({
-    //     ...state,
-    //     error: {
-    //       ...state.error,
-    //       email: "Please enter your email",
-    //     },
-    //   });
-    // }
-
-    // if (state.subject == "") {
-    //   setState({
-    //     ...state,
-    //     error: {
-    //       ...state.error,
-    //       subject: "Please enter your subject",
-    //     },
-    //   });
-    // }
-
-    // if (state.lastname == "") {
-    //   setState({
-    //     ...state,
-    //     error: {
-    //       ...state.error,
-    //       lastname: "Please enter your lastname",
-    //     },
-    //   });
-    // }
-
-    // if (state.message == "") {
-    //   setState({
-    //     ...state,
-    //     error: {
-    //       ...state.error,
-    //       message: "Please enter your message",
-    //     },
-    //   });
-    // }
-
-    console.log(Object.keys(state.error).length);
-
-    if (!Object.keys(state.error).length) {
+    if (validator.allValid()) {
+      validator.hideMessages();
       dispatch(sendMessage(state));
+    } else {
+      validator.showMessages();
+      toast.error("Empty field is not allowed!");
     }
   };
 
@@ -111,7 +54,7 @@ const ContactForm = () => {
               name="name"
               placeholder="Name"
             />
-            <p>{state.error?.name ? state.error?.name : ""}</p>
+            <p>{validator.message("first name", state.name, "required")}</p>
           </div>
         </div>
         <div className="col-lg-6 col-md-6 col-12">
@@ -123,7 +66,7 @@ const ContactForm = () => {
               name="lastname"
               placeholder="Lastname"
             />
-            <p>{state.error?.lastname ? state.error?.lastname : ""}</p>
+            <p>{validator.message("last name", state.lastname, "required")}</p>
           </div>
         </div>
         <div className="col-lg-6 col-md-6 col-12">
@@ -135,7 +78,7 @@ const ContactForm = () => {
               name="email"
               placeholder="Email"
             />
-            <p>{state.error?.email ? state.error?.email : ""}</p>
+            <p>{validator.message("email", state.email, "required|email")}</p>
           </div>
         </div>
         <div className="col-lg-6 col-md-6 col-12">
@@ -147,7 +90,7 @@ const ContactForm = () => {
               name="subject"
               placeholder="Subject"
             />
-            <p>{state.error?.subject ? state.error?.subject : ""}</p>
+            <p>{validator.message("subject", state.subject, "required")}</p>
           </div>
         </div>
         <div className="col-lg-12">
@@ -158,7 +101,7 @@ const ContactForm = () => {
               onChange={changeHandler}
               placeholder="Message"
             ></textarea>
-            <p>{state.error?.message ? state.error?.message : ""}</p>
+            <p>{validator.message("message", state.message, "required")}</p>
           </div>
         </div>
         <div className="col-lg-12">

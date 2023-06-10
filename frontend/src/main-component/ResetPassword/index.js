@@ -4,7 +4,7 @@ import SimpleReactValidator from "simple-react-validator";
 import { toast } from "react-toastify";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 import "./style.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,6 +22,7 @@ const ResetPassword = (props) => {
   const [value, setValue] = useState({
     password: "",
   });
+  const [searchParams] = useSearchParams();
 
   const { loading, resettoken } = useSelector((state) => state.authReducer);
 
@@ -39,7 +40,9 @@ const ResetPassword = (props) => {
   const submitForm = (e) => {
     e.preventDefault();
     if (validator.allValid()) {
-      dispatch(resetPassword(value));
+      dispatch(
+        resetPassword({ data: value, token: searchParams.get("token"), push })
+      );
       validator.hideMessages();
     } else {
       validator.showMessages();
@@ -47,23 +50,12 @@ const ResetPassword = (props) => {
     }
   };
 
-  useEffect(() => {
-    if (!cookies.get("_resettoken")) {
-      setValue({
-        password: "",
-      });
-      push("/login");
-    }
-  }, [resettoken]);
-
   return (
     <Grid className="loginWrapper">
       <div className="ps-4 pb-3 pb-md-5">
         <MdKeyboardReturn color="#666666" size={28} />
         <Link to={"/"}>
-          <span className="ps-3 back-to-home">
-            Return to Home Page
-          </span>
+          <span className="ps-3 back-to-home">Return to Home Page</span>
         </Link>
       </div>
       <Grid className="loginForm">
