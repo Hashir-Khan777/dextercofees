@@ -35,6 +35,13 @@ body .container {
 }
 
 .checkoutWrapper {
+  span {
+    font-family: "Oswald Bold";
+    font-size: 50px;
+    margin: 0 auto;
+    padding: 100px 0;
+    text-transform: uppercase;
+  }
   .checkoutCard {
     margin-bottom: 20px;
 

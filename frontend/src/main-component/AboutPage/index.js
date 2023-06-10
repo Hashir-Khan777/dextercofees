@@ -16,7 +16,7 @@ const AboutPage =() => {
             <PageTitle pageTitle={'About Us'} pagesub={'About'}/> 
             <About/>
             <Category2 StyleClass={'style-2'}/>
-            <Testimonial />
+            {/* <Testimonial /> */}
             <Footer/>
             <Scrollbar/>
         </Fragment>

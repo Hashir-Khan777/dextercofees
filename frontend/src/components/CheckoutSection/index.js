@@ -107,7 +107,8 @@ const CheckoutSection = ({cartList}) => {
         <Fragment>
             <Grid className="checkoutWrapper section-padding">
                 <Grid className="container" container spacing={3}>
-                    <Grid item md={6} xs={12}>
+                    <span>In Progress</span>
+                    {/* <Grid item md={6} xs={12}>
                         <div className="check-form-area">
                             <Grid className="cuponWrap checkoutCard">
                                 <Button className="collapseBtn" fullWidth onClick={() => faqHandler('cupon')}>
@@ -498,7 +499,7 @@ const CheckoutSection = ({cartList}) => {
                                 </Grid>
                             </Grid>
                         </Grid>
-                    </Grid>
+                    </Grid> */}
                 </Grid>
             </Grid>
         </Fragment>

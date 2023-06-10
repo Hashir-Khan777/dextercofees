@@ -76,7 +76,7 @@ const ShopPage = ({ addToCart, addToWishList }) => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography>Product Search Filters</Typography>
+              <Typography>Product Search Filter</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>

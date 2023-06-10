@@ -65,23 +65,25 @@ const Footer = (props) =>{
                             <ul>
                                 <li><Link onClick={ClickHandler} to="/">Home</Link></li>
                                 <li><Link onClick={ClickHandler} to="/about">About</Link></li>
-                                <li><Link onClick={ClickHandler} to="/wishlist">Wishlist</Link></li>
-                                <li><Link onClick={ClickHandler} to="/checkout">Checkout</Link></li>
-                                <li><Link onClick={ClickHandler} to="/wishlist">Wishlist</Link></li>
+                                <li><Link onClick={ClickHandler} to="/shop">Shop</Link></li>
+                                <li><Link onClick={ClickHandler} to="/contact">Contact Us</Link></li>
+                                {/* <li><Link onClick={ClickHandler} to="/wishlist">Wishlist</Link></li> */}
                             </ul>
                         </div>
                     </div>
                     <div className="col col-lg-3 col-md-6 col-sm-12 col-12">
                         <div className="widget link-widget">
                             <div className="widget-title">
-                                <h3>Our Products</h3>
+                                <h3>Our Popular Products</h3>
                             </div>
                             <ul>
                                 {/* <li><Link onClick={ClickHandler} to="/project">Our Projects</Link></li> */}
-                                <li><Link onClick={ClickHandler} to="/shop">Our Shop</Link></li>
-                                <li><Link onClick={ClickHandler} to="/wishlist">Wishlist</Link></li>
-                                <li><Link onClick={ClickHandler} to="/checkout">Checkout</Link></li>
-                                <li><Link onClick={ClickHandler} to="/wishlist">Wishlist</Link></li>
+                                <li><Link onClick={ClickHandler} to="/product-single/5">Dexter Cafe</Link></li>
+                                <li><Link onClick={ClickHandler} to="/product-single/7">French Roast</Link></li>
+                                <li><Link onClick={ClickHandler} to="/product-single/4">Decaf Colombia Classic</Link></li>
+                                <li><Link onClick={ClickHandler} to="/product-single/9">Hazelnut</Link></li>
+                                <li><Link onClick={ClickHandler} to="/product-single/2">American Breakfast</Link></li>
+                               
                             </ul>
                         </div>
                     </div>

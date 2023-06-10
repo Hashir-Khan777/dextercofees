@@ -3,24 +3,24 @@ import React from "react";
 const prices = [
   {
     id: 1,
-    min: 50,
-    max: 100,
+    min: 0,
+    max: 50,
   },
   {
     id: 2,
-    min: 100,
-    max: 200,
+    min: 51,
+    max: 100,
   },
   {
     id: 3,
-    min: 200,
+    min: 101,
     max: null,
   },
 ];
 
 const sizes = ["small", "medium", "large"];
 const colors = ["fff", "000", "cf1105"];
-const brands = ["flower", "hill", "forest"];
+const brands = ["Without Roast", "Medium Roast", "Dark Roast"];
 
 const FilterSidebar = ({ filter, changeHandler, priceChangeHandler }) => {
   return (
@@ -46,7 +46,7 @@ const FilterSidebar = ({ filter, changeHandler, priceChangeHandler }) => {
           </div>
         </div> */}
         <div className="row w-100">
-          <div className="col-lg-3 col-sm-6 col-12 px-3">
+          {/* <div className="col-lg-3 col-sm-6 col-12 px-3">
             <div className="filter-item">
               <div className="shop-filter-item">
                 <h2>Price</h2>
@@ -120,11 +120,11 @@ const FilterSidebar = ({ filter, changeHandler, priceChangeHandler }) => {
                 </ul>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="col-lg-3 col-sm-6 col-12 px-3">
             <div className="filter-item">
               <div className="shop-filter-item">
-                <h2>Brand</h2>
+                <h2>Roast Type</h2>
                 <ul>
                   <li>
                     <label className="topcoat-radio-button__label">
@@ -158,7 +158,7 @@ const FilterSidebar = ({ filter, changeHandler, priceChangeHandler }) => {
               </div>
             </div>
           </div>
-          <div className="col-lg-3 col-sm-6 col-12 px-3">
+          {/* <div className="col-lg-3 col-sm-6 col-12 px-3">
             <div className="filter-item">
               <div className="shop-filter-item color">
                 <h2> Color</h2>
@@ -183,9 +183,8 @@ const FilterSidebar = ({ filter, changeHandler, priceChangeHandler }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
-
       </div>
     </div>
   );

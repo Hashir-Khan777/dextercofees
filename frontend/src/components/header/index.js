@@ -78,7 +78,7 @@ const Header = (props) => {
                 <Link
                   onClick={ClickHandler}
                   className="navbar-brand"
-                  to="/home"
+                  to="/"
                 >
                   <img src={Logo} alt="icon" className="company-logo" />
                 </Link>

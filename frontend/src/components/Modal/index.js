@@ -66,16 +66,16 @@ const DefaultModal = ({
                 <div className="product-single-img">
                   <div className="modal-product">
                     <div className="item">
-                      <img src="https://www.dextercoffees.com/assets/images/shop/Dexter_Cafe.png" alt="Product Image" />
+                      <img src={product.proImg} alt="Product Image" />
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col-lg-7">
+              <div className="col-lg-7 px-5 pb-5">
                 <div className="product-single-content">
                   <h5>{product && product.title}</h5>
                   <h6>{product && product.price} USD</h6>
-                  <ul className="rating">
+                  {/* <ul className="rating">
                     <li>
                       <i className="fa fa-star" aria-hidden="true"></i>
                     </li>
@@ -91,11 +91,11 @@ const DefaultModal = ({
                     <li>
                       <i className="fa fa-star" aria-hidden="true"></i>
                     </li>
-                  </ul>
+                  </ul> */}
                   <p>
                     {product && product.description}
                   </p>
-                  <div className="product-filter-item color">
+                  {/* <div className="product-filter-item color">
                     <div className="color-name">
                       <span>Color :</span>
                       <ul>
@@ -113,8 +113,8 @@ const DefaultModal = ({
                         </li>
                       </ul>
                     </div>
-                  </div>
-                  <div className="product-filter-item color filter-size">
+                  </div> */}
+                  {/* <div className="product-filter-item color filter-size">
                     <div className="color-name">
                       <span>Weight :</span>
                       <ul>
@@ -136,7 +136,15 @@ const DefaultModal = ({
                         </li>
                       </ul>
                     </div>
+                  </div> */}
+
+                <div className="product-filter-item color filter-size pt-3">
+                  <div className="color-name">
+                    <span>Roast Type :</span>
+                      <div className="ms-3 roast-type">{product.brand}</div>
                   </div>
+                </div>
+
                   <div className="pro-single-btn">
                     <Grid className="quantity cart-plus-minus">
                       <Button
@@ -159,12 +167,12 @@ const DefaultModal = ({
                     </Grid>
                     <button
                       onClick={() => addToCartProduct(product, qty)}
-                      className="theme-btn"
+                      className="btn btn_primary text-uppercase ms-4 mb-2"
                     >
                       Add to cart
                     </button>
                   </div>
-                  <div className="social-share">
+                  {/* <div className="social-share">
                     <span>Share with : </span>
                     <ul className="socialLinks">
                       <li>
@@ -193,7 +201,7 @@ const DefaultModal = ({
                         </Link>
                       </li>
                     </ul>
-                  </div>
+                  </div> */}
                   {/* <div className="m-shape">
                     <img src={bee} alt="" />
                   </div> */}

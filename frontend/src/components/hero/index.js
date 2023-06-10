@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 
 
 class Hero extends Component {
@@ -19,8 +19,16 @@ class Hero extends Component {
                                         The coffee is brewed by first roasting the green coffee beans over hot coals in a brazier. given an opportunity to sample.
                                     </p>
                                     <ul class="btns_group ul_li">
-                                        <li><a class="btn btn_primary text-uppercase" href="menu.html" tabindex="0">testy Coffee</a></li>
-                                        <li><a class="btn btn_border border_white text-uppercase" href="shop_details.html" tabindex="0">Learn more</a></li>
+                                        <li>
+                                            <Link to={"/shop"} className="btn btn_primary text-uppercase">
+                                                testy Coffee
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to={"/about"} className="btn btn_border border_white text-uppercase">
+                                                Learn more
+                                            </Link>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

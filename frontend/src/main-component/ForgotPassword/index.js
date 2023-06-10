@@ -12,6 +12,7 @@ import { forgotPassword } from "../../store/actions/action";
 import { useEffect } from "react";
 import Cookies from "universal-cookie";
 import { CircularProgress } from "@material-ui/core";
+import { MdKeyboardReturn } from "react-icons/md";
 
 const ForgotPassword = (props) => {
   const push = useNavigate();
@@ -57,6 +58,14 @@ const ForgotPassword = (props) => {
 
   return (
     <Grid className="loginWrapper">
+      <div className="ps-4 pb-3 pb-md-5">
+        <MdKeyboardReturn color="#666666" size={28} />
+        <Link to={"/"}>
+          <span className="ps-3 back-to-home">
+            Return to Home Page
+          </span>
+        </Link>
+      </div>
       <Grid className="loginForm">
         <h2>Forgot Password</h2>
         <p>Reset your account password</p>

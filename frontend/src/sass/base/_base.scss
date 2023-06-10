@@ -25,10 +25,56 @@ body {
     }
 }
 
+.errorMessage {
+    font-size: 14px;
+    color: #F70000;
+}
+
+.loginWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;
+
+    .back-to-home {
+        font-family: "Roboto Medium";
+        color: #666666;
+    }
+}
+
+.product-price {
+    @media(max-width:768px){
+        ul{
+
+            li{
+                &:first-child {
+                    font-size: 18px;
+                }
+    
+                &:last-child {
+                    font-size: 15px !important;
+                }
+            }
+        }
+    }
+}
+.product-content {
+    h3 {
+        font-size: 15px;
+    }
+}
+
 .small-headings p {
     font-size: 14px;
     font-family: "Roboto Medium" !important;
     color: $black !important;
+}
+
+.no-data-found {
+    font-family: "Roboto Medium";
+    font-size: 18px;
+    padding-left: 30px;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
 }
 
 
@@ -95,7 +141,7 @@ img {
 .section-padding {
     padding: 125px 0 120px;
 
-    @include media-query( 767px ) {
+    @include media-query( 1024px ) {
         padding: 80px 0;
     }
 }

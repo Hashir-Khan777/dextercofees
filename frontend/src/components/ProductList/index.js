@@ -25,13 +25,13 @@ const ProductList = ({ products, addToCartProduct, addToWishListProduct }) => {
       <div className="product-wrap">
         <div className="row align-items-center">
           {products.length > 0 ? (
-            products.slice(0, 6).map((product, pitem) => (
+            products.slice(0, 14).map((product, pitem) => (
               <div className="col-xl-12 col-12" key={pitem}>
                 <div className="product-item">
                   <div className="product-img product-list p-3">
                     <img
-                      src="https://www.dextercoffees.com/assets/images/shop/Dexter_Cafe.png"
-                      alt=""
+                      src={product.proImg}
+                      alt="Dexter Coffee"
                     />
                     <ul>
                       <li>
@@ -96,7 +96,7 @@ const ProductList = ({ products, addToCartProduct, addToWishListProduct }) => {
               </div>
             ))
           ) : (
-            <p>No Data Found</p>
+            <p className="no-data-found">No Data Found</p>
           )}
         </div>
         <DefaultModal

@@ -125,7 +125,12 @@
             background-color: #F3F3F3;
             padding: 20px;
 
+            @media(max-width:1199px){
+                padding: 100px;
+            }
+
             @media(max-width:991px){
+              max-height: 500px;
               width: 100%;
               padding-top: 45px;
             }

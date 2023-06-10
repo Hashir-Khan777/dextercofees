@@ -88,82 +88,16 @@
             &.color{
                 .color-name{
                     margin-top: 20px;
-                }
-
-                .color-name ul li input {
-                    margin-right: 0;
-                    position: absolute;
-                    z-index: -1;
-                    opacity: 0;
-                }
-                
-                
-                .color-name ul {
-                    display: flex;
-                    margin-left: 20px;
-                }
-
-                .color-name ul li {
-                    width: 36px;
-                    height: 36px;
-                }
-                
-                .color-name ul {
-                    list-style: none;
-                    flex-wrap: wrap;
-                }
-                
-                .color-name ul li input {
-                    margin-right: 0;
-                }
-                
-                .color-name ul li {
-                    margin-right: 10px;
-                    margin-bottom: 10px;
-                }
-        
-                .color-name ul li input {
-                    margin-right: 0;
-                    position: absolute;
-                    z-index: -1;
-                    font-size: 18px
-                }
-                
-                .color-name ul li input:checked~label {
-                    width: 40px;
-                    height: 40px;
-                }
-                
-                .color-name label {
-                    border: 1px solid transparent;
-                    cursor: pointer;
-                    padding: 0;
-                    width: 36px;
-                    height: 36px;
-                }
-                .color-name label {
-                    background: $text-color;
-                    border-radius: 50%;
-                    box-shadow: 0px 10px 20px rgba(168, 168, 168, 0.5);
-                }
-                .color-name {
                     display: flex;
                     align-items: center;
-                    .color1{
-                       label{
-                         background: #444444; 
-                       }
-                    }
-                    .color2{
-                       label{
-                         background: #E8E8E8; 
-                       }
-                    }
-                    .color3{
-                       label{
-                         background: #FF3D3D; 
-                       }
-                    }
+                }
+
+                .color-name .roast-type {
+                    background: #000;
+                    font-family: "Roboto Medium";
+                    color: #fff;
+                    padding: 12px 20px;
+                    border-radius: 32px;
                 }
 
                 &.filter-size{
@@ -217,53 +151,33 @@
         }
 
 
-        .social-share{
-            margin-top: 30px;
-            display: flex;
-            align-items: center;
+        // .social-share{
+        //     margin-top: 30px;
+        //     display: flex;
+        //     align-items: center;
 
-            ul.socialLinks {
-                margin-left: 10px;
+        //     ul.socialLinks {
+        //         margin-left: 10px;
               
               
-                li {
-                  display: inline-block;
+        //         li {
+        //           display: inline-block;
               
-                  a {
-                    display: block;
-                    margin-right: 8px;
+        //           a {
+        //             display: block;
+        //             margin-right: 8px;
               
-                    svg {
-                      height: 18px;
-                      width: 18px;
-                      line-height: 18px;
-                      text-align: center;
-                      color: $theme-primary-color;
-                    //   border-radius: 50%;
-                    //   background: #0E76A8;
-                    }
-              
-                    // .fa-linkedin {
-                    //   background: #55ACEE;
-                    // }
-              
-                    // .fa-dribbble {
-                    //   background: #6A453B;
-                    // }
-              
-                    // .fa-twitter {
-                    //   background: #3B5998;
-                    // }
-                    // .fa-instagram{
-                    //   background: #8941A7;
-                    // }
-                    // .fa-youtube-play{
-                    //   background: #D72B27;
-                    // }
-                  }
-                }
-              }
-        }      
+        //             svg {
+        //               height: 18px;
+        //               width: 18px;
+        //               line-height: 18px;
+        //               text-align: center;
+        //               color: $theme-primary-color;
+        //             }
+        //           }
+        //         }
+        //     }
+        // }      
 
     }
 }
@@ -617,6 +531,10 @@
             object-fit: contain;
             width: 100%;
             max-height: 480px;
+
+            @media(max-width:991px){
+                max-height: 400px;
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { TfiFacebook } from "react-icons/tfi";
 import { TfiLinkedin } from "react-icons/tfi";
 import { AiOutlineGoogle } from "react-icons/ai";
+import { MdKeyboardReturn } from "react-icons/md";
 
 import "./style.scss";
 import { register } from "../../store/actions/action";
@@ -79,6 +80,14 @@ const SignUpPage = (props) => {
 
   return (
     <Grid className="loginWrapper">
+      <div className="ps-4 pb-3 pb-md-5">
+        <MdKeyboardReturn color="#666666" size={28} />
+        <Link to={"/"}>
+          <span className="ps-3 back-to-home">
+            Return to Home Page
+          </span>
+        </Link>
+      </div>
       <Grid className="loginForm">
         <h2>Signup</h2>
         <p>Signup your account</p>
@@ -134,6 +143,7 @@ const SignUpPage = (props) => {
                 InputLabelProps={{
                   shrink: true,
                 }}
+                type="password"
                 onBlur={(e) => changeHandler(e)}
                 onChange={(e) => changeHandler(e)}
               />
@@ -151,6 +161,7 @@ const SignUpPage = (props) => {
                 InputLabelProps={{
                   shrink: true,
                 }}
+                type="password"
                 onBlur={(e) => changeHandler(e)}
                 onChange={(e) => changeHandler(e)}
               />
@@ -161,7 +172,7 @@ const SignUpPage = (props) => {
               )}
             </Grid>
             <Grid item xs={12}>
-              <Grid className="formFooter">
+              <Grid className="formFooter mt-0">
                 <Button
                   fullWidth
                   className="btn btn_primary text-uppercase"
@@ -175,7 +186,7 @@ const SignUpPage = (props) => {
                   )}
                 </Button>
               </Grid>
-              <Grid className="loginWithSocial">
+              {/* <Grid className="loginWithSocial">
                 <Button className="facebook">
                   <TfiFacebook />
                 </Button>
@@ -185,7 +196,7 @@ const SignUpPage = (props) => {
                 <Button className="linkedin">
                   <TfiLinkedin />
                 </Button>
-              </Grid>
+              </Grid> */}
               <p className="noteHelp">
                 Already have an account?{" "}
                 <Link to="/login">Return to Sign In</Link>

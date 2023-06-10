@@ -9,7 +9,7 @@
     transition: all 0.3s ease 0s;
     box-shadow: 0px 10px 40px 0px rgba(50, 50, 50, 0.1);
     overflow-x: auto;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .mobileMenu::-webkit-scrollbar {

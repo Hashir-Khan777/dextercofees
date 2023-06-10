@@ -1,11 +1,23 @@
 
 
 .tp-breadcumb-area {
-    background: url(../../images/aboutus-hero.jpg);
-	background-repeat: no-repeat;
-	background-position: 100%;
-	// background-size: 100%;
-    min-height: 480px;
+    // background: url(../../images/aboutus-hero.jpg);
+
+	// background: url(../../images/banner.jpg);
+	// background-repeat: no-repeat;
+	// background-position: 100%;
+    // min-height: 480px;
+    // position: relative;
+    // display: flex;
+    // justify-content: center;
+    // flex-direction: column;
+    // z-index: 1;
+
+	background: url(../../images/banner.jpg);
+    background-repeat: no-repeat;
+    background-position: 100% 80%;
+    min-height: 500px;
+    background-size: cover;
     position: relative;
     display: flex;
     justify-content: center;
@@ -30,10 +42,35 @@
 			display: none;
 		}
 	}
+	@media(max-width: 1440px) {
+		background-position: 70% 80%;
+	}
+
+	@media(max-width: 991px) {
+		background-position: 80% 80%;
+	}
 
 	@media(max-width: 767px) {
 		min-height: 380px;
 	}
+
+	@media(max-width: 680px) {
+		// background-position: 75% 80%;
+
+		background: url(../../images/mobile-banner.jpg);
+		background-repeat: no-repeat;
+		background-position: 70% 80%;
+		min-height: 500px;
+		background-size: cover;
+	}
+
+	// @media(max-width: 576px) {
+	// 	background-position: 80% 80%;
+	// }
+
+	// @media(max-width: 475px) {
+	// 	background-position: 90% 80%;
+	// }
 
 	&:before{
 		position: absolute;
@@ -44,7 +81,7 @@
 		background: $dark-gray;
 		content: "";
 		z-index: -1;
-		opacity: .65;
+		opacity: .3;
 	}
 	.tp-breadcumb-wrap {
 		text-align: center;
@@ -77,10 +114,14 @@
 				color: #fff;
 				position: relative;
 				font-size: 16px;
-				font-family: $base-font;
+				font-family: "Roboto Bold";
+				letter-spacing: 0.8px;
+				// font-family: $base-font;
 
 				@media(max-width:767px){
 					font-size: 16px;
+					font-family: "Roboto Bold";
+					letter-spacing: 0.5px;
 				}
 
 				&:after{
@@ -105,12 +146,11 @@
 					transition: all .3s;
 					font-size: 16px;
 
-					&:hover{
-						color: $theme-primary-color;
-					}
+					// &:hover{
+					// 	color: $theme-primary-color;
+					// }
 				}
 			}
 		}
 	}
 }
-

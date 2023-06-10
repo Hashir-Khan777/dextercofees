@@ -6,6 +6,11 @@
     border-radius: 8px;
     margin-right: 6px;
 
+    @media(max-width:475px){
+        width: 50px;
+        margin-right: 4px;
+    }
+
     &:last-child {
         margin-right: 0px;
     }
@@ -14,4 +19,12 @@
     color: #272729;
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.vi__container {
+    width: 350px !important;
+
+    @media(max-width:475px){
+        width: 320px !important;
+    }
 }

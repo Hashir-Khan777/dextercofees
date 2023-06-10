@@ -10,6 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { TfiFacebook } from "react-icons/tfi";
 import { TfiLinkedin } from "react-icons/tfi";
 import { AiOutlineGoogle } from "react-icons/ai";
+import { MdKeyboardReturn } from "react-icons/md";
 import "./style.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../store/actions/action";
@@ -78,6 +79,14 @@ const LoginPage = () => {
 
   return (
     <Grid className="loginWrapper">
+      <div className="ps-4 pb-3 pb-md-5">
+        <MdKeyboardReturn color="#666666" size={28} />
+        <Link to={"/"}>
+          <span className="ps-3 back-to-home">
+            Return to Home Page
+          </span>
+        </Link>
+      </div>
       <Grid className="loginForm">
         <h2>Sign In</h2>
         <p>Sign in to your account</p>
@@ -120,7 +129,7 @@ const LoginPage = () => {
             </Grid>
             <Grid item xs={12}>
               <Grid className="formAction">
-                <FormControlLabel
+                {/* <FormControlLabel
                   control={
                     <Checkbox
                       checked={value.remember}
@@ -128,7 +137,7 @@ const LoginPage = () => {
                     />
                   }
                   label="Remember Me"
-                />
+                /> */}
                 <Link to="/forgot-password">Forgot Password?</Link>
               </Grid>
               <Grid className="formFooter">
@@ -145,7 +154,7 @@ const LoginPage = () => {
                   )}
                 </Button>
               </Grid>
-              <Grid className="loginWithSocial">
+              {/* <Grid className="loginWithSocial">
                 <Button className="facebook">
                   <TfiFacebook />
                 </Button>
@@ -155,7 +164,7 @@ const LoginPage = () => {
                 <Button className="linkedin">
                   <TfiLinkedin />
                 </Button>
-              </Grid>
+              </Grid> */}
               <p className="noteHelp">
                 Don't have an account?{" "}
                 <Link to="/register">Create free account</Link>

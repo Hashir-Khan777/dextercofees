@@ -38,9 +38,9 @@ const FilterAllProduct = ({ products, addToCartProduct,addToWishListProduct }) =
             </NavItem>
           </Nav>
         </div>
-        <div className="shoping-product">
-          <span>Showing Products 1 - 9 Of 9 Result</span>
-        </div>
+        {/* <div className="shoping-product">
+          <span>Showing Products 1 - 14 Of 14 Result</span>
+        </div> */}
       </div>
       <TabContent activeTab={activeTab}>
         <TabPane tabId="1">

@@ -76,7 +76,7 @@ const WishlistPage = (props) => {
                             </tr>
                           ))
                         ) : (
-                          <p>No Data Found</p>
+                          <p className="no-data-found">No Data Found</p>
                         )}
                       </tbody>
                     </table>

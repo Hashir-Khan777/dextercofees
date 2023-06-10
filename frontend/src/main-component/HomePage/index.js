@@ -45,7 +45,7 @@ const HomePage = ({ addToCart, addToWishList }) => {
         addToWishListProduct={addToWishListProduct}
         products={products}
       />
-      <Testimonial />
+      {/* <Testimonial /> */}
       <Footer />
       <Scrollbar />
     </Fragment>

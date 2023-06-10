@@ -24,7 +24,7 @@ const Product = ({ products, addToCartProduct, addToWishListProduct }) => {
   return (
     <section className="product-area section-padding">
       <div className="container">
-        <div className="row">
+        <div className="row align-items-center">
           <div className="col-lg-6 col-md-8">
             <div className="category-title">
               <div className='d-flex align-items-center small-headings mb-2'>
@@ -34,20 +34,22 @@ const Product = ({ products, addToCartProduct, addToWishListProduct }) => {
               <h2>OUR POPULAR PRODUCT</h2>
             </div>
           </div>
-          <div className="col-lg-6 col-md-4">
-            <div className="abtn_wrap text-lg-end text-md-end">
-              <a className="btn btn_border border_black text-uppercase" href="">See all product</a>
+          <div className="col-lg-6 col-md-4 category-title">
+            <div className="abtn_wrap text-lg-end text-md-end btn-end">
+              <Link to={"/shop"} className="btn btn_border border_black text-uppercase">
+                See all products
+              </Link>
             </div>
           </div>
         </div>
         <div className="product-wrap">
-          <div className="row align-items-center">
+          <div className="row align-items-center justify-content-start">
             {products.length > 0 &&
               products.slice(0, 8).map((product, pitem) => (
-                <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={pitem}>
+                <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 shop-items" key={pitem}>
                   <div className="product-item">
                     <div className="product-img p-3">
-                      <img src="https://www.dextercoffees.com/assets/images/shop/French_Vanilla.png" alt="" />
+                      <img src={product.proImg} alt="" />
                       <ul>
                         <li>
                           <button

@@ -12,12 +12,43 @@
     font-size: 75px;
     margin-bottom: 25px;
     font-family: "Oswald Bold";
-  }
+
+    @media(max-width:1199px){
+        line-height: 70px;
+        font-size: 56px;
+        margin-top: 30px;
+    }
+    @media(max-width:740px){
+        line-height: 60px;
+        font-size: 50px;
+        margin-top: 30px;
+    }
+    @media(max-width:500px){
+        line-height: 50px;
+        font-size: 40px;
+        padding-right: 40px;
+        margin-top: 30px;
+    }
+    @media(max-width:360px){
+        line-height: 46px;
+        font-size: 36px;
+    }
+}
+
 .slider_item p {
     font-size: 18px;
     margin-bottom: 40px;
     color: $white;
-    font-family: "Poppins Light";
+    font-family: "Roboto Regular";
+
+    @media(max-width:740px){
+        font-size: 16px;
+        padding-right: 90px;
+    }
+    @media(max-width:740px){
+        // font-size: 16px;
+        padding-right: 50px;
+    }
 }
 .ul_li {
     margin: 0px;
@@ -29,6 +60,13 @@
 }
 .btns_group li:not(:last-child) {
     margin-right: 30px;
+
+    @media(max-width:400px){
+        margin-right: 20px;
+    }
+    @media(max-width:360px){
+        margin-right: 10px;
+    }
 }
 .ul_li > li{
     float: left;
@@ -41,12 +79,22 @@
     line-height: 1;
     color: $white;
     font-size: 14px;
-    font-weight: 700;
+    // font-weight: 700;
     padding: 21px 42px;
     border-radius: 5px;
     display: inline-block;
     transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    font-family: "DM Sans", sans-serif;
+    font-family: "Roboto Bold";
+
+    @media(max-width:400px){
+        padding: 19px 34px;
+    }
+    @media(max-width:360px){
+        padding: 19px 32px;
+    }
+}
+.btn:focus {
+    box-shadow: none;
 }
 .btn.btn_primary {
     background-color: #c7a17a;
@@ -54,6 +102,13 @@
 .btn.btn_border {
     padding: 19px 42px;
     border: 2px solid transparent;
+
+    @media(max-width:400px){
+        padding: 19px 34px;
+    }
+    @media(max-width:360px){
+        padding: 19px 32px;
+    }
 }
 .btn.border_white {
     border-color: rgba(255, 255, 255, 0.5);
@@ -254,10 +309,15 @@
 .category-area-s2 .hero-shape-img-1{
     position: absolute;
     right: -30px;
-    top: 300px;
+    top: 220px;
+    z-index: 10;
 
     img {
         width: 300px;
+    }
+
+    @media(max-width: 1440px) {
+        top: 280px;
     }
 
     @media(max-width: 1199px) {

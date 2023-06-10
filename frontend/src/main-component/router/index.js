@@ -42,8 +42,8 @@ const AllRoute = () => {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Homepage />} />
-          <Route path="/home" element={<Homepage />} />
-          <Route path="/home2" element={<Homepage2 />} />
+          {/* <Route path="/home" element={<Homepage />} /> */}
+          {/* <Route path="/home2" element={<Homepage2 />} /> */}
           <Route path="/about" element={<AboutPage />} />
           <Route path="/shop" element={<ShopPage />} />
           <Route path="/product-single/:id" element={<ProductDetailsPage />} />
@@ -73,21 +73,21 @@ const AllRoute = () => {
             }
           />
           <Route path="/project-single" element={<ProjectSinglePage />} />
-          <Route path="/project" element={<ProjectPage />} />
+          {/* <Route path="/project" element={<ProjectPage />} /> */}
           <Route path="/404" element={<ErrorPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/blog" element={<BlogPage />} />
+          {/* <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog-left-sidebar" element={<BlogPageLeft />} />
           <Route path="/blog-fullwidth" element={<BlogPageFullwidth />} />
-          <Route path="/blog-single/:id" element={<BlogDetails />} />
-          <Route
+          <Route path="/blog-single/:id" element={<BlogDetails />} /> */}
+          {/* <Route
             path="/blog-single-left-sidebar/:id"
             element={<BlogDetailsLeftSiide />}
-          />
-          <Route
+          /> */}
+          {/* <Route
             path="/blog-single-fullwidth/:id"
             element={<BlogDetailsFull />}
-          />
+          /> */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<SignUpPage />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
