@@ -20,8 +20,8 @@ class Hero extends Component {
                                     </p>
                                     <ul class="btns_group ul_li">
                                         <li>
-                                            <Link to={"/shop"} className="btn btn_primary text-uppercase">
-                                                testy Coffee
+                                            <Link to={"/our-coffees"} className="btn btn_primary text-uppercase">
+                                                Our Coffees
                                             </Link>
                                         </li>
                                         <li>

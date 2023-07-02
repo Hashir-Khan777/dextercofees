@@ -15,21 +15,13 @@ const Contactpage = () => {
                             <h2>Our Contacts</h2>
                         </div>
                         <div className="contact-details">
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classNameical Latin literature from 45 BC, making it over 2000 years old. </p>
                             <ul>
                                 <li>
                                     <div className="icon">
                                         <MdLocationPin size={24} color="#C7A17A" />
                                     </div>
                                     <h5>Our Location</h5>
-                                    <p>7 New York NY 10007</p>
-                                </li>
-                                <li>
-                                    <div className="icon">
-                                        <BsFillTelephoneFill size={20} color="#C7A17A" />
-                                    </div>
-                                    <h5>Phone</h5>
-                                    <p>+1 347 445 5144, +1 347 279 8775</p>
+                                    <p>New York NY 10007</p>
                                 </li>
                                 <li>
                                     <div className="icon">
@@ -37,6 +29,14 @@ const Contactpage = () => {
                                     </div>
                                     <h5>Email</h5>
                                     <p>info@dextercoffees.com</p>
+                                </li>
+                                <li>
+                                    <div className="icon">
+                                        <BsFillTelephoneFill size={20} color="#C7A17A" />
+                                    </div>
+                                    <h5>Phone</h5>
+                                    <p className="mb-1">+1347 279 8775</p>
+                                    <p className="mb-1">+1347 445 5144</p>
                                 </li>
                             </ul>
                         </div>

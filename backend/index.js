@@ -8,20 +8,10 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT;
 
-app.use(cors({ origin: process.env.ORIGIN }));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  "/api",
-  (req, res, next) => {
-    if (req.headers.origin) {
-      next();
-    } else {
-      res.send({ message: "You are not allowed to call this action" });
-    }
-  },
-  AppRouter
-);
+app.use("/api", AppRouter);
 
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,

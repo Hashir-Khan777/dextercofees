@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import DefaultModal from "../Modal";
 
 const ProductGrid = ({ products, addToCartProduct, addToWishListProduct }) => {
@@ -28,9 +28,10 @@ const ProductGrid = ({ products, addToCartProduct, addToWishListProduct }) => {
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 shop-items" key={pitem}>
               <div className="product-item">
                 <div className="product-img p-3">
-                  <img
+                  <LazyLoadImage
                     src={product.proImg}
-                    alt="Dexter Coffee"
+                    alt={product.title}
+                    effect="blur"
                   />
                   <ul>
                     <li>

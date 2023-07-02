@@ -63,7 +63,7 @@ const ProductSingleSec = ({ item, addToCart }) => {
                       <Zoom>
                         <img
                           alt="Dexter Coffee"
-                          src={item.proImg}
+                          src={item.image}
                           // width="500"
                         />
                       </Zoom>
@@ -73,7 +73,7 @@ const ProductSingleSec = ({ item, addToCart }) => {
               </div>
               <div className="col-lg-7">
                 <div className="product-single-content">
-                  <h5>{item.title}</h5>
+                  <h5>{item.name}</h5>
                   <h6>${item.price}</h6>
                   {/* <ul className="rating">
                   <li>
@@ -92,7 +92,7 @@ const ProductSingleSec = ({ item, addToCart }) => {
                     <i className="fa fa-star" aria-hidden="true"></i>
                   </li>
                 </ul> */}
-                  <p>{item.description}</p>
+                  <div dangerouslySetInnerHTML={{ __html: item.description }} />
                   {/* <div className="product-filter-item color">
                   <div className="color-name">
                     <span>Color :</span>
@@ -115,7 +115,7 @@ const ProductSingleSec = ({ item, addToCart }) => {
                   <div className="product-filter-item color filter-size pt-3">
                     <div className="color-name">
                       <span>Roast Type :</span>
-                      <div className="ms-3 roast-type">{item.brand}</div>
+                      <div className="ms-3 roast-type">{item.roastType}</div>
                     </div>
                   </div>
                   <div className="pro-single-btn d-flex align-items-center">
@@ -159,9 +159,7 @@ const ProductSingleSec = ({ item, addToCart }) => {
               <div className="category-title">
                 <div className="d-flex align-items-center small-headings mb-2">
                   <FaCoffee color="#C7A17A" size={20} />
-                  <p className="text-uppercase ps-2 pb-0 mb-0">
-                    DEXTER COFFEE SHOP
-                  </p>
+                  <p className="text-uppercase ps-2 pb-0 mb-0">DEXTER COFFEE</p>
                 </div>
                 <h2>OUR RELATED PRODUCT</h2>
               </div>
@@ -169,7 +167,7 @@ const ProductSingleSec = ({ item, addToCart }) => {
             <div className="col-lg-6 col-md-4 category-title">
               <div className="abtn_wrap text-lg-end text-md-end btn-end">
                 <Link
-                  to={"/shop"}
+                  to={"/our-coffees"}
                   className="btn btn_border border_black text-uppercase"
                 >
                   See all products

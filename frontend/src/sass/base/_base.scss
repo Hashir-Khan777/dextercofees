@@ -48,6 +48,12 @@ body {
 		}
     }
 }
+// .product-img {
+
+    .lazy-load-image-background.blur.lazy-load-image-loaded {
+        width: 100%;
+    }
+// }
 
 .cart-plus-minus {
     @media(max-width:475px){

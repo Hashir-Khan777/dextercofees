@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import bee from '../../images/bee2.png'
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const DefaultModal = ({
   maxWidth,
@@ -66,7 +67,7 @@ const DefaultModal = ({
                 <div className="product-single-img">
                   <div className="modal-product">
                     <div className="item">
-                      <img src={product.proImg} alt="Product Image" />
+                      <LazyLoadImage src={product.proImg} alt={product.title} effect="blur" />
                     </div>
                   </div>
                 </div>

@@ -256,3 +256,47 @@ export const sendMessage = (contactForm) => async (dispatch) => {
     );
   }
 };
+
+export const getProducts = () => async (dispatch) => {
+  dispatch({
+    type: types.RECEIVE_PRODUCTS_REQUEST,
+  });
+  try {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API_URL}/api/products`
+    );
+    dispatch({
+      type: types.RECEIVE_PRODUCTS,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: types.RECEIVE_PRODUCTS_FAIL,
+    });
+    toast.error(
+      err.response.data.message ? err.response.data.message : err.message
+    );
+  }
+};
+
+export const getProduct = (productId) => async (dispatch) => {
+  dispatch({
+    type: types.FETCH_SINGLE_PRODUCT_REQUEST,
+  });
+  try {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API_URL}/api/products/${productId}`
+    );
+    dispatch({
+      type: types.FETCH_SINGLE_PRODUCT,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: types.FETCH_SINGLE_PRODUCT_FAIL,
+    });
+    toast.error(
+      err.response.data.message ? err.response.data.message : err.message
+    );
+  }
+};

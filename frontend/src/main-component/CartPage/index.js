@@ -15,6 +15,7 @@ import {
 import { ImBin } from "react-icons/im";
 import { GrFormSubtract } from "react-icons/gr";
 import { IoMdAdd } from "react-icons/io";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const CartPage = (props) => {
   const ClickHandler = () => {
@@ -50,10 +51,7 @@ const CartPage = (props) => {
                           carts.map((catItem, crt) => (
                             <tr key={crt}>
                               <td className="images">
-                                <img
-                                  src="https://www.dextercoffees.com/assets/images/shop/Dexter_Cafe.png"
-                                  alt=""
-                                />
+                                <LazyLoadImage src={catItem.proImg} alt={catItem.title} effect="blur" />
                               </td>
                               <td className="product">
                                 <ul>
@@ -120,7 +118,7 @@ const CartPage = (props) => {
                         <Link
                           onClick={ClickHandler}
                           className="btn btn_primary text-uppercase"
-                          to="/shop"
+                          to="/our-coffees"
                         >
                           Continue Shopping
                         </Link>

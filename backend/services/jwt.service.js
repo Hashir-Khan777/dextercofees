@@ -20,4 +20,27 @@ const isAuth = (req, res, next) => {
   }
 };
 
-module.exports = { generateToken, isAuth };
+const isAdmin = (req, res, next) => {
+  const { authorization } = req.headers;
+  const token = authorization?.slice(7, authorization.length);
+  if (token) {
+    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+      if (err) {
+        res.status(401).send({ message: "Please login" });
+      } else {
+        if (!user.role.includes("admin")) {
+          res
+            .status(401)
+            .send({ message: "You are not allowed to call this action" });
+        } else {
+          req.user = user;
+          next();
+        }
+      }
+    });
+  } else {
+    res.status(401).send({ message: "Please login" });
+  }
+};
+
+module.exports = { generateToken, isAuth, isAdmin };

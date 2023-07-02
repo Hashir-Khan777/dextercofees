@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.fdabdf72.css",
-    "main.js": "/static/js/main.c6640979.js",
+    "main.css": "/static/css/main.b76d892b.css",
+    "main.js": "/static/js/main.ec1a8c3b.js",
     "static/js/787.b1b9be0d.chunk.js": "/static/js/787.b1b9be0d.chunk.js",
     "static/media/mobile-banner.jpg": "/static/media/mobile-banner.26e1b8c1cb22ed5ddb70.jpg",
-    "static/media/home-banner.png": "/static/media/home-banner.c27494e72ed11249af9e.png",
     "static/media/bg.jpg": "/static/media/bg.1ae39b527f6c85b79a55.jpg",
-    "static/media/banner.jpg": "/static/media/banner.9b3261563910f51f2cd9.jpg",
+    "static/media/new-banner.webp": "/static/media/new-banner.875a260d3f8c0ccabf12.webp",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.0df0476086c08bcee568.svg",
+    "static/media/home-banner.webp": "/static/media/home-banner.8f6867f42ee069e393e3.webp",
+    "static/media/President-Message.webp": "/static/media/President-Message.69a5e6f2d8f0cb573e10.webp",
     "static/media/themify.svg?-fvbane": "/static/media/themify.c4292f34297f1004471a.svg",
-    "static/media/About-us.jpg": "/static/media/About-us.bfe1f481e554d7c57efb.jpg",
     "static/media/flaticon.svg": "/static/media/flaticon.f7de90e86529aeba06ac.svg",
     "static/media/1.png": "/static/media/1.aa126243071de46371d9.png",
     "static/media/fontawesome-webfont.eot": "/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
@@ -27,6 +27,7 @@
     "static/media/Roboto-Bold.ttf": "/static/media/Roboto-Bold.35eab922fdbe4b5324d4.ttf",
     "static/media/Roboto-Light.ttf": "/static/media/Roboto-Light.67102731a93fd827b382.ttf",
     "static/media/fontawesome-webfont.woff?v=4.7.0": "/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/About-us.webp": "/static/media/About-us.52b68189cf7aab4e55ff.webp",
     "static/media/themify.eot": "/static/media/themify.9bad94440d49256265a5.eot",
     "static/media/themify.ttf?-fvbane": "/static/media/themify.eda8b94308c6f538f04a.ttf",
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
@@ -54,12 +55,12 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.fdabdf72.css.map": "/static/css/main.fdabdf72.css.map",
-    "main.c6640979.js.map": "/static/js/main.c6640979.js.map",
+    "main.b76d892b.css.map": "/static/css/main.b76d892b.css.map",
+    "main.ec1a8c3b.js.map": "/static/js/main.ec1a8c3b.js.map",
     "787.b1b9be0d.chunk.js.map": "/static/js/787.b1b9be0d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fdabdf72.css",
-    "static/js/main.c6640979.js"
+    "static/css/main.b76d892b.css",
+    "static/js/main.ec1a8c3b.js"
   ]
 }

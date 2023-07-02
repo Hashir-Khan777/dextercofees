@@ -1,52 +1,43 @@
-import React, {Fragment, useEffect, useState} from 'react';
-import Navbar from '../../components/Navbar'
-import { useParams } from 'react-router-dom'
-import ProductSingleSec from '../../components/ProductSingleSec'
-import PageTitle from '../../components/pagetitle'
-import Footer from '../../components/footer'
-import Scrollbar from '../../components/scrollbar'
-import { connect } from "react-redux";
+import React, { Fragment, useEffect, useState } from "react";
+import Navbar from "../../components/Navbar";
+import { useParams } from "react-router-dom";
+import ProductSingleSec from "../../components/ProductSingleSec";
+import PageTitle from "../../components/pagetitle";
+import Footer from "../../components/footer";
+import Scrollbar from "../../components/scrollbar";
+import { connect, useDispatch, useSelector } from "react-redux";
 import api from "../../api";
-import { addToCart } from "../../store/actions/action";
+import { addToCart, getProduct } from "../../store/actions/action";
 
+const ProductDetailsPage = (props) => {
+  const dispatch = useDispatch();
 
-const ProductDetailsPage =(props) => {
+  const { id } = useParams();
 
-    const { id } = useParams()
+  const { addToCart } = props;
+  const { product } = useSelector((state) => state.data);
 
-    
-    const productsArray = api();
-    const Allproduct = productsArray
+  useEffect(() => {
+    dispatch(getProduct(id));
+  }, []);
 
-    
-    const {addToCart} = props;
-    const [product, setProduct] = useState({});
-    
-    useEffect(() => {
-        setProduct(Allproduct.filter(Allproduct => Allproduct.id === Number(id)))
-    }, []);
-    
-    const item = product[0];
-
-
-    return(
-        <Fragment>
-            <Navbar hClass={'header-style-2'}/>
-            <PageTitle pageTitle={'Product Single'} pagesub={'Product'}/> 
-            {item ? <ProductSingleSec
-                item={item}
-                addToCart={addToCart}
-            /> : null}
-            <Footer/>
-            <Scrollbar/>
-        </Fragment>
-    )
+  return (
+    <Fragment>
+      <Navbar hClass={"header-style-2"} />
+      <PageTitle pageTitle={"Product Single"} pagesub={"Product"} />
+      {product ? (
+        <ProductSingleSec item={product} addToCart={addToCart} />
+      ) : null}
+      <Footer />
+      <Scrollbar />
+    </Fragment>
+  );
 };
 
-const mapStateToProps = state => {
-    return {
-        products: state.data.products,
-    }
+const mapStateToProps = (state) => {
+  return {
+    products: state.data.products,
+  };
 };
 
-export default connect(mapStateToProps, {addToCart})(ProductDetailsPage);
+export default connect(mapStateToProps, { addToCart })(ProductDetailsPage);

@@ -1,9 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import CategoryImage from '../../images/category/About-us.jpg'
-
+import CategoryImage from '../../images/category/About-us.webp'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { FaCoffee } from "react-icons/fa";
-
 
 const Category = (props) => {
     const ClickHandler = () =>{
@@ -25,7 +24,6 @@ const Category = (props) => {
                                     DEXTER COFFEES an American Premium Brand we used only premium class 100% Arabica Beans around the world for a supreme class CUP OF COFFEE DEXTER first brought his love for high quality coffees to the American marketplace.
                                 </p>
                             </div>
-
                             <ul class="about_info ul_li_block">
                                 <li>
                                     <h4 class="text-uppercase">Our Passion</h4>
@@ -45,14 +43,13 @@ const Category = (props) => {
                                             Learn more
                                         </Link>
                                     </li>
-                                        
                                 </ul>
                             </ul>
                         </div>
                     </div>
                     <div className="col-xl-6 col-lg-6 col-12 order-1">
                         <div className="category-img ps-0 position-relative">
-                            <img src={CategoryImage} alt="" className="mb-5 mb-md-0" />
+                            <LazyLoadImage src={CategoryImage} effect="blur" alt="Dexter Coffee" className="mb-5 mb-md-0" />
                             {/* <div className="year_content_wrap text-uppercase">
                                 <div class="content_wrap d-flex flex-column">
                                     <span>27 <small>+ years of</small></span>

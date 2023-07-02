@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import DefaultModal from "../Modal";
 import { FaCoffee } from "react-icons/fa";
 
@@ -27,16 +27,19 @@ const Product = ({ products, addToCartProduct, addToWishListProduct }) => {
         <div className="row align-items-center">
           <div className="col-lg-6 col-md-8">
             <div className="category-title">
-              <div className='d-flex align-items-center small-headings mb-2'>
-                  <FaCoffee color='#C7A17A' size={20} />
-                  <p className='text-uppercase ps-2 pb-0 mb-0'>DEXTER COFFEE SHOP</p>
+              <div className="d-flex align-items-center small-headings mb-2">
+                <FaCoffee color="#C7A17A" size={20} />
+                <p className="text-uppercase ps-2 pb-0 mb-0">DEXTER COFFEE</p>
               </div>
               <h2>OUR POPULAR PRODUCT</h2>
             </div>
           </div>
           <div className="col-lg-6 col-md-4 category-title">
             <div className="abtn_wrap text-lg-end text-md-end btn-end">
-              <Link to={"/shop"} className="btn btn_border border_black text-uppercase">
+              <Link
+                to={"/our-coffees"}
+                className="btn btn_border border_black text-uppercase"
+              >
                 See all products
               </Link>
             </div>
@@ -44,12 +47,19 @@ const Product = ({ products, addToCartProduct, addToWishListProduct }) => {
         </div>
         <div className="product-wrap">
           <div className="row align-items-center justify-content-start">
-            {products.length > 0 &&
-              products.slice(0, 8).map((product, pitem) => (
-                <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 shop-items" key={pitem}>
+            {products?.length > 0 &&
+              products?.map((product, pitem) => (
+                <div
+                  className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 shop-items"
+                  key={pitem}
+                >
                   <div className="product-item">
                     <div className="product-img p-3">
-                      <img src={product.proImg} alt="" />
+                      <LazyLoadImage
+                        src={product.image}
+                        alt={product.name}
+                        effect="blur"
+                      />
                       <ul>
                         <li>
                           <button
@@ -83,23 +93,22 @@ const Product = ({ products, addToCartProduct, addToWishListProduct }) => {
                         </li>
                       </ul>
                       <div className="offer-thumb">
-                        <span>{product.offer}</span>
+                        <span>New</span>
                       </div>
                     </div>
                     <div className="product-content">
                       <h3 className="text-uppercase">
                         <Link
                           onClick={ClickHandler}
-                          to={`/product-single/${product.id}`}
+                          to={`/product-single/${product._id}`}
                         >
-                          {product.title}
+                          {product.name}
                         </Link>
                       </h3>
                       <div className="product-btm">
                         <div className="product-price">
                           <ul>
                             <li>${product.price}</li>
-                            <li>${product.delPrice}</li>
                           </ul>
                         </div>
                         {/* <div className="product-ratting">

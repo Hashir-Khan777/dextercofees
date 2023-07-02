@@ -29,8 +29,8 @@ const menus = [
     },
     {
         id: 3,
-        title: 'Shop',
-        link: '/shop',
+        title: 'Our Coffees',
+        link: '/our-coffees',
     },
 
     // {

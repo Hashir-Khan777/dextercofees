@@ -65,7 +65,7 @@ const Footer = (props) =>{
                             <ul>
                                 <li><Link onClick={ClickHandler} to="/">Home</Link></li>
                                 <li><Link onClick={ClickHandler} to="/about">About</Link></li>
-                                <li><Link onClick={ClickHandler} to="/shop">Shop</Link></li>
+                                <li><Link onClick={ClickHandler} to="/our-coffees">Our Coffees</Link></li>
                                 <li><Link onClick={ClickHandler} to="/contact">Contact Us</Link></li>
                                 {/* <li><Link onClick={ClickHandler} to="/wishlist">Wishlist</Link></li> */}
                             </ul>
@@ -94,10 +94,10 @@ const Footer = (props) =>{
                             </div>
                             <div className="contact-ft">
                                 <ul>
-                                    <li><MdLocationPin className="me-3" size={24} /> 7 New York NY 10007</li>
+                                    <li><MdLocationPin className="me-3" size={24} />New York NY 10007</li>
                                     <li><MdEmail className="me-3" size={24} /> info@dextercoffees.com</li>
-                                    <li><BsFillTelephoneFill className="me-3" size={20} /> +1 347 445 5144</li>
-                                    <li><BsFillTelephoneFill className="me-3 invisible" size={20} />+1 347 279 8775</li>
+                                    <li><BsFillTelephoneFill className="me-3" size={20} />+1347 279 8775</li>
+                                    <li><BsFillTelephoneFill className="me-3 invisible" size={20} />+1347 445 5144</li>
                                 </ul>
                             </div>
                         </div>

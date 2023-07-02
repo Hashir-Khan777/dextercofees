@@ -118,6 +118,44 @@ AuthRouter.post("/login", async (req, res) => {
   }
 });
 
+AuthRouter.post("/login/admin", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await UserModel.findOne({ email, verified: true });
+    if (user) {
+      if (user.role.includes("admin")) {
+        const isPasswordGoogle = await BcryptService.comparePassword(
+          "google",
+          user.password
+        );
+        if (isPasswordGoogle) {
+          return res.status(200).send({
+            ...user._doc,
+            token: JwtService.generateToken(user._doc, "30d"),
+          });
+        } else {
+          const isPasswordCorrect = await BcryptService.comparePassword(
+            password,
+            user.password
+          );
+          if (isPasswordCorrect) {
+            return res.status(200).send({
+              ...user._doc,
+              token: JwtService.generateToken(user._doc, "30d"),
+            });
+          }
+          return res.status(403).send({ message: "Incorrect password" });
+        }
+      } else {
+        return res.status(403).send({ message: "You are not an admin" });
+      }
+    }
+    return res.status(404).send({ message: "Please register yourself" });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
 AuthRouter.post("/forgot/password", async (req, res) => {
   try {
     const { email } = req.body;

@@ -8,6 +8,7 @@ import { totalPrice } from "../../utils";
 import { removeFromCart, removeFromWishList } from "../../store/actions/action";
 import Cookies from "universal-cookie";
 import { useState } from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {
   DELETE_CART,
   DELETE_WISHLIST,
@@ -113,8 +114,8 @@ const Header = (props) => {
                     </Link>
                   </li>
                   <li>
-                    <Link onClick={ClickHandler} to="/shop">
-                      Shop
+                    <Link onClick={ClickHandler} to="/our-coffees">
+                      Our Coffees
                     </Link>
                   </li>
                   {/* <li className="menu-item-has-children">
@@ -266,7 +267,7 @@ const Header = (props) => {
                 </div>
                 <div className="mini-cart">
                   <button onClick={cartHandler} className="cart-toggle-btn">
-                    <i className="fi flaticon-bag"></i>{" "}
+                    <i className="fi flaticon-bag"></i>
                     <span className="cart-count">{carts.length}</span>
                   </button>
                   <div
@@ -287,9 +288,10 @@ const Header = (props) => {
                           <div className="mini-cart-item clearfix" key={crt}>
                             <div className="mini-cart-item-image">
                               <span>
-                                <img
-                                  src="https://www.dextercoffees.com/assets/images/shop/Dexter_Cafe.png"
-                                  alt="icon"
+                                <LazyLoadImage
+                                  src={cart.proImg}
+                                  alt={cart.title}
+                                  effect="blur"
                                 />
                               </span>
                             </div>
@@ -365,9 +367,10 @@ const Header = (props) => {
                           <div className="mini-cart-item clearfix" key={i}>
                             <div className="mini-cart-item-image">
                               <span>
-                                <img
-                                  src="https://www.dextercoffees.com/assets/images/shop/Dexter_Cafe.png"
-                                  alt="icon"
+                                <LazyLoadImage
+                                  src={wish.proImg}
+                                  alt={wish.title}
+                                  effect="blur"
                                 />
                               </span>
                             </div>

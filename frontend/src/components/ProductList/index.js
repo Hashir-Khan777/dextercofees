@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import DefaultModal from "../Modal";
 
 const ProductList = ({ products, addToCartProduct, addToWishListProduct }) => {
@@ -29,9 +29,10 @@ const ProductList = ({ products, addToCartProduct, addToWishListProduct }) => {
               <div className="col-xl-12 col-12" key={pitem}>
                 <div className="product-item">
                   <div className="product-img product-list p-3">
-                    <img
+                    <LazyLoadImage
                       src={product.proImg}
-                      alt="Dexter Coffee"
+                      alt={product.title}
+                      effect="blur"
                     />
                     <ul>
                       <li>
