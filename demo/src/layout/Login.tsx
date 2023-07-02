@@ -41,6 +41,7 @@ const Login = () => {
         `${import.meta.env.VITE_BASE_API_URL}/auth/login/admin`,
         auth
       );
+      localStorage.setItem("user", JSON.stringify(data));
       cookies.set("_user", data.token);
       login(
         auth,

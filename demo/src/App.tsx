@@ -57,7 +57,7 @@ const App = () => (
     <Resource name="commands" {...orders} options={{ label: "Orders" }} />
     <Resource name="invoices" {...invoices} />
     <Resource name="products" {...products} />
-    <Resource name="categories" {...categories} />
+    <Resource name="users" {...categories} />
     <Resource name="reviews" {...reviews} />
   </Admin>
 );
