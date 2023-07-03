@@ -1,5 +1,5 @@
-import React, { Fragment, useState } from "react";
-import { connect } from "react-redux";
+import React, { Fragment, useEffect, useState } from "react";
+import { connect, useDispatch, useSelector } from "react-redux";
 import Navbar from "../../components/Navbar";
 import PageTitle from "../../components/pagetitle";
 import Footer from "../../components/footer";
@@ -7,18 +7,22 @@ import Scrollbar from "../../components/scrollbar";
 import FilterSidebar from "../../components/FilterSidebar";
 import FilterAllProduct from "../../components/FilterAllProduct";
 import api from "../../api";
-import { addToCart, addToWishList } from "../../store/actions/action";
+import {
+  addToCart,
+  addToWishList,
+  getProducts,
+} from "../../store/actions/action";
 
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
+import Accordion from "@material-ui/core/Accordion";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import Typography from "@material-ui/core/Typography";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 // import ExpandMoreIcon from '@material-ui/core/ExpandMore';
 
 const ShopPage = ({ addToCart, addToWishList }) => {
-  const productsArray = api();
+  const [productsArray, setProductsArray] = useState([]);
 
   const [filter, setFilter] = useState({
     price: "",
@@ -26,6 +30,10 @@ const ShopPage = ({ addToCart, addToWishList }) => {
     color: "",
     brand: "",
   });
+
+  const dispatch = useDispatch();
+
+  const { products } = useSelector((state) => state.data);
 
   const priceChangeHandler = ({ target: { name, value } }) => {
     const val = typeof value === "string" ? JSON.parse(value) : value;
@@ -52,15 +60,21 @@ const ShopPage = ({ addToCart, addToWishList }) => {
     addToCart(product, 1, filter.color, filter.size);
   };
 
-  const products = productsArray
-    .filter((el) => priceFIlter(el.price))
-    .filter((el) => (filter.size ? el.size === filter.size : true))
-    .filter((el) => (filter.color ? el.color === filter.color : true))
-    .filter((el) => (filter.brand ? el.brand === filter.brand : true));
-
   const addToWishListProduct = (products) => {
     addToWishList(products);
   };
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
+  useEffect(() => {
+    setProductsArray(
+      products
+        .filter((el) => priceFIlter(el.price))
+        .filter((el) => (filter.brand ? el.roastType === filter.brand : true))
+    );
+  }, [filter]);
 
   return (
     <Fragment>
@@ -68,29 +82,28 @@ const ShopPage = ({ addToCart, addToWishList }) => {
       <PageTitle pageTitle={"Shop"} pagesub={"Shop"} />
       <div className="shop-section">
         <div className="container">
-
-        <div className="filters-accordian pb-3">
-          <Accordion>
-            <AccordionSummary
-              expandIcon={<MdKeyboardArrowDown />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
-              <Typography>Product Search Filter</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>
-                <div className="row">
-                  <FilterSidebar
-                    filter={filter}
-                    priceChangeHandler={priceChangeHandler}
-                    changeHandler={changeHandler}
-                  />
-                </div>
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-        </div>
+          <div className="filters-accordian pb-3">
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<MdKeyboardArrowDown />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography>Product Search Filter</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  <div className="row">
+                    <FilterSidebar
+                      filter={filter}
+                      priceChangeHandler={priceChangeHandler}
+                      changeHandler={changeHandler}
+                    />
+                  </div>
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </div>
 
           <div className="row">
             {/* <FilterSidebar
@@ -101,7 +114,7 @@ const ShopPage = ({ addToCart, addToWishList }) => {
             <FilterAllProduct
               addToCartProduct={addToCartProduct}
               addToWishListProduct={addToWishListProduct}
-              products={products}
+              products={productsArray}
             />
           </div>
         </div>

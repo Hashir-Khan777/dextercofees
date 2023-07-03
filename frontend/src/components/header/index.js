@@ -8,7 +8,7 @@ import { totalPrice } from "../../utils";
 import { removeFromCart, removeFromWishList } from "../../store/actions/action";
 import Cookies from "universal-cookie";
 import { useState } from "react";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import {
   DELETE_CART,
   DELETE_WISHLIST,
@@ -76,11 +76,7 @@ const Header = (props) => {
           <div className="row">
             <div className="col-lg-3">
               <div className="navbar-header mt-0">
-                <Link
-                  onClick={ClickHandler}
-                  className="navbar-brand"
-                  to="/"
-                >
+                <Link onClick={ClickHandler} className="navbar-brand" to="/">
                   <img src={Logo} alt="icon" className="company-logo" />
                 </Link>
               </div>
@@ -289,14 +285,14 @@ const Header = (props) => {
                             <div className="mini-cart-item-image">
                               <span>
                                 <LazyLoadImage
-                                  src={cart.proImg}
-                                  alt={cart.title}
+                                  src={cart.image}
+                                  alt={cart.name}
                                   effect="blur"
                                 />
                               </span>
                             </div>
                             <div className="mini-cart-item-des">
-                              <p>{cart.title} </p>
+                              <p>{cart.name} </p>
                               <span className="mini-cart-item-price">
                                 ${cart.price} x {cart.qty}
                               </span>
@@ -368,14 +364,14 @@ const Header = (props) => {
                             <div className="mini-cart-item-image">
                               <span>
                                 <LazyLoadImage
-                                  src={wish.proImg}
-                                  alt={wish.title}
+                                  src={wish.image}
+                                  alt={wish.name}
                                   effect="blur"
                                 />
                               </span>
                             </div>
                             <div className="mini-cart-item-des">
-                              <p>{wish.title} </p>
+                              <p>{wish.name} </p>
                               <span className="mini-cart-item-price">
                                 ${wish.price}
                               </span>

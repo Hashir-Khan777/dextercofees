@@ -67,14 +67,14 @@ const DefaultModal = ({
                 <div className="product-single-img">
                   <div className="modal-product">
                     <div className="item">
-                      <LazyLoadImage src={product.proImg} alt={product.title} effect="blur" />
+                      <LazyLoadImage src={product.image} alt={product.name} effect="blur" />
                     </div>
                   </div>
                 </div>
               </div>
               <div className="col-lg-7 px-4 px-sm-5 pb-5">
                 <div className="product-single-content">
-                  <h5>{product && product.title}</h5>
+                  <h5>{product && product.name}</h5>
                   <h6>{product && product.price} USD</h6>
                   {/* <ul className="rating">
                     <li>
@@ -142,7 +142,7 @@ const DefaultModal = ({
                 <div className="product-filter-item color filter-size pt-3">
                   <div className="color-name">
                     <span>Roast Type :</span>
-                      <div className="ms-3 roast-type">{product.brand}</div>
+                      <div className="ms-3 roast-type">{product.roastType}</div>
                   </div>
                 </div>
 

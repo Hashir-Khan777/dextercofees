@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import DefaultModal from "../Modal";
 
 const ProductGrid = ({ products, addToCartProduct, addToWishListProduct }) => {
@@ -25,12 +25,15 @@ const ProductGrid = ({ products, addToCartProduct, addToWishListProduct }) => {
       <div className="row align-items-center justify-content-start">
         {products.length > 0 ? (
           products.map((product, pitem) => (
-            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 shop-items" key={pitem}>
+            <div
+              className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 shop-items"
+              key={pitem}
+            >
               <div className="product-item">
                 <div className="product-img p-3">
                   <LazyLoadImage
-                    src={product.proImg}
-                    alt={product.title}
+                    src={product.image}
+                    alt={product.name}
                     effect="blur"
                   />
                   <ul>
@@ -66,23 +69,22 @@ const ProductGrid = ({ products, addToCartProduct, addToWishListProduct }) => {
                     </li>
                   </ul>
                   <div className="offer-thumb">
-                    <span>{product.offer}</span>
+                    <span>New</span>
                   </div>
                 </div>
                 <div className="product-content">
                   <h3 className="text-uppercase">
                     <Link
                       onClick={ClickHandler}
-                      to={`/product-single/${product.id}`}
+                      to={`/product-single/${product._id}`}
                     >
-                      {product.title}
+                      {product.name}
                     </Link>
                   </h3>
                   <div className="product-btm">
                     <div className="product-price">
                       <ul>
                         <li>${product.price}</li>
-                        <li>${product.delPrice}</li>
                       </ul>
                     </div>
                   </div>

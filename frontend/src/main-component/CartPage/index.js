@@ -15,7 +15,7 @@ import {
 import { ImBin } from "react-icons/im";
 import { GrFormSubtract } from "react-icons/gr";
 import { IoMdAdd } from "react-icons/io";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const CartPage = (props) => {
   const ClickHandler = () => {
@@ -51,15 +51,16 @@ const CartPage = (props) => {
                           carts.map((catItem, crt) => (
                             <tr key={crt}>
                               <td className="images">
-                                <LazyLoadImage src={catItem.proImg} alt={catItem.title} effect="blur" />
+                                <LazyLoadImage
+                                  src={catItem.image}
+                                  alt={catItem.name}
+                                  effect="blur"
+                                />
                               </td>
                               <td className="product">
                                 <ul>
-                                  <li className="first-cart">
-                                    {catItem.title}
-                                  </li>
-                                  <li>Brand : {catItem.brand}</li>
-                                  <li>Size : {catItem.size}</li>
+                                  <li className="first-cart">{catItem.name}</li>
+                                  <li>Brand : {catItem.roastType}</li>
                                 </ul>
                               </td>
                               <td className="stock">
@@ -85,9 +86,7 @@ const CartPage = (props) => {
                                   </Grid>
                                 </div>
                               </td>
-                              <td className="ptice">
-                                ${catItem.qty * catItem.price}
-                              </td>
+                              <td className="ptice">${catItem.price}</td>
                               <td className="stock">
                                 ${catItem.qty * catItem.price}
                               </td>

@@ -8,7 +8,7 @@ import Scrollbar from "../../components/scrollbar";
 import { removeFromWishList, addToCart } from "../../store/actions/action";
 import { ImBin } from "react-icons/im";
 import { BsCart3 } from "react-icons/bs";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const WishlistPage = (props) => {
   const { wishs } = props;
@@ -39,17 +39,20 @@ const WishlistPage = (props) => {
                           wishs.map((wish, crt) => (
                             <tr key={crt}>
                               <td className="images">
-                                <LazyLoadImage src={wish.proImg} alt={wish.title} effect="blur" />
+                                <LazyLoadImage
+                                  src={wish.image}
+                                  alt={wish.name}
+                                  effect="blur"
+                                />
                               </td>
                               <td className="product">
                                 <ul>
-                                  <li className="first-cart">{wish.title} </li>
-                                  <li>Brand : {wish.brand}</li>
-                                  <li>Size : {wish.size}</li>
+                                  <li className="first-cart">{wish.name} </li>
+                                  <li>Brand : {wish.roastType}</li>
                                 </ul>
                               </td>
                               <td className="ptice">${wish.price}</td>
-                              <td className="stock">{wish.stock}</td>
+                              <td className="stock">{wish.quantity}</td>
                               <td className="action">
                                 <ul>
                                   <li className="c-btn">
