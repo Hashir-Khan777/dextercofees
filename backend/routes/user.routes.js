@@ -15,11 +15,8 @@ UserRouter.get("/", JwtService.isAdmin, async (req, res) => {
 
 UserRouter.put("/create/admin/:_id", JwtService.isAdmin, async (req, res) => {
   try {
-    await UserModel.findOneAndUpdate(
-      { _id },
-      { $addToSet: { role: "admin" } },
-      { new: true }
-    );
+    const { _id } = req.params;
+    await UserModel.findOneAndUpdate({ _id }, { role: "admin" }, { new: true });
     const users = await UserModel.find({});
     res.send(users);
   } catch (err) {
@@ -29,11 +26,8 @@ UserRouter.put("/create/admin/:_id", JwtService.isAdmin, async (req, res) => {
 
 UserRouter.put("/remove/admin/:_id", JwtService.isAdmin, async (req, res) => {
   try {
-    await UserModel.findOneAndUpdate(
-      { _id },
-      { $pull: { role: "admin" } },
-      { new: true }
-    );
+    const { _id } = req.params;
+    await UserModel.findOneAndUpdate({ _id }, { role: "user" }, { new: true });
     const users = await UserModel.find({});
     res.send(users);
   } catch (err) {

@@ -1,8 +1,10 @@
 import * as React from "react";
-import { useTheme, useMediaQuery } from "@mui/material";
+import { useTheme, useMediaQuery, CircularProgress } from "@mui/material";
 import { Box, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
 import { Link } from "react-router-dom";
+import DeleteIcon from "@mui/icons-material/Delete";
 import axios from "axios";
+import Cookies from "universal-cookie";
 
 const GridList = () => {
   const [products, setProducts] = React.useState([]);
@@ -23,7 +25,7 @@ const GridList = () => {
   return isLoading ? (
     <LoadingGridList />
   ) : (
-    <LoadedGridList products={products} />
+    <LoadedGridList products={products} setProducts={setProducts} />
   );
 };
 
@@ -56,27 +58,57 @@ const LoadingGridList = () => {
   );
 };
 
-const LoadedGridList = ({ products }) => {
+const LoadedGridList = ({ products, setProducts }) => {
+  const [isLoading, setIsloading] = React.useState(false);
   const cols = useColsForWidth();
+
+  const cookies = new Cookies();
+
+  const deleteProduct = async (_id) => {
+    setIsloading(true);
+    await axios.delete(
+      `${import.meta.env.VITE_BASE_API_URL}/products/delete/${_id}`,
+      { headers: { Authorization: `Bearer ${cookies.get("_user")}` } }
+    );
+    setProducts(products.filter((x) => x._id !== _id));
+    setIsloading(false);
+  };
 
   return (
     <ImageList rowHeight={180} cols={cols} sx={{ m: 0 }}>
-      {products?.map((record) => (
-        <ImageListItem
-          component={Link}
-          key={record._id}
-          to={`/products/${record._id}`}
-        >
-          <img src={record.image} alt="" />
-          <ImageListItemBar
-            title={record.name}
-            sx={{
-              background:
-                "linear-gradient(to top, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.4) 70%,rgba(0,0,0,0) 100%)",
-            }}
-          />
-        </ImageListItem>
-      ))}
+      {isLoading ? (
+        <CircularProgress />
+      ) : (
+        products?.map((record) => (
+          <Box sx={{ position: "relative" }}>
+            <DeleteIcon
+              sx={{
+                position: "absolute",
+                top: 0,
+                right: 0,
+                color: "red",
+                zIndex: 999,
+                cursor: "pointer",
+              }}
+              onClick={() => deleteProduct(record._id)}
+            />
+            <ImageListItem
+              component={Link}
+              key={record._id}
+              to={`/products/${record._id}`}
+            >
+              <img src={record.image} alt="" />
+              <ImageListItemBar
+                title={record.name}
+                sx={{
+                  background:
+                    "linear-gradient(to top, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.4) 70%,rgba(0,0,0,0) 100%)",
+                }}
+              />
+            </ImageListItem>
+          </Box>
+        ))
+      )}
     </ImageList>
   );
 };
