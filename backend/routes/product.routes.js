@@ -46,7 +46,7 @@ ProductRouter.put("/update/:_id", JwtService.isAdmin, async (req, res) => {
   }
 });
 
-ProductRouter.put("/delete/:_id", JwtService.isAdmin, async (req, res) => {
+ProductRouter.delete("/delete/:_id", JwtService.isAdmin, async (req, res) => {
   try {
     const { _id } = req.params;
     await ProductModel.findOneAndDelete({ _id });
