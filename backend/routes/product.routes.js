@@ -36,6 +36,26 @@ ProductRouter.post("/create", JwtService.isAdmin, async (req, res) => {
   }
 });
 
+ProductRouter.put("/update/:_id", JwtService.isAdmin, async (req, res) => {
+  try {
+    const { _id } = req.params;
+    await ProductModel.findOneAndUpdate({ _id }, req.body, { new: true });
+    res.status(200).send({ message: "Product has been created successfully!" });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+ProductRouter.put("/delete/:_id", JwtService.isAdmin, async (req, res) => {
+  try {
+    const { _id } = req.params;
+    await ProductModel.findOneAndDelete({ _id });
+    res.status(200).send({ message: "Product has been deleted!" });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
 ProductRouter.post(
   "/post/image",
   JwtService.isAdmin,

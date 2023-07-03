@@ -37,12 +37,18 @@ const Login = () => {
   const handleSubmit = async (auth: FormValues) => {
     setLoading(true);
     try {
+      const date = new Date();
       const { data } = await axios.post(
         `${import.meta.env.VITE_BASE_API_URL}/auth/login/admin`,
         auth
       );
+      const expires = new Date(date.setDate(date.getDate() + 30));
       localStorage.setItem("user", JSON.stringify(data));
-      cookies.set("_user", data.token);
+      cookies.set("_user", data.token, {
+        path: "/",
+        secure: true,
+        expires,
+      });
       login(
         auth,
         location.state ? (location.state as any).nextPathname : "/"

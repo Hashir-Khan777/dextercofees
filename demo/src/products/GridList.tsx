@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useTheme, useMediaQuery } from "@mui/material";
 import { Box, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
-import { useCreatePath, NumberField, useListContext } from "react-admin";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -46,11 +45,9 @@ const times = (nbChildren: number, fn: (key: number) => any) =>
   Array.from({ length: nbChildren }, (_, key) => fn(key));
 
 const LoadingGridList = () => {
-  const { perPage } = useListContext();
-  const cols = useColsForWidth();
   return (
-    <ImageList rowHeight={180} cols={cols} sx={{ m: 0 }}>
-      {times(perPage, (key) => (
+    <ImageList rowHeight={180} sx={{ m: 0 }}>
+      {times(20, (key) => (
         <ImageListItem key={key}>
           <Box bgcolor="grey.300" height="100%" />
         </ImageListItem>
@@ -61,41 +58,18 @@ const LoadingGridList = () => {
 
 const LoadedGridList = ({ products }) => {
   const cols = useColsForWidth();
-  const createPath = useCreatePath();
 
   return (
     <ImageList rowHeight={180} cols={cols} sx={{ m: 0 }}>
       {products?.map((record) => (
         <ImageListItem
           component={Link}
-          key={record.id}
-          to={createPath({
-            resource: "products",
-            id: record._id,
-            type: "edit",
-          })}
+          key={record._id}
+          to={`/products/${record._id}`}
         >
           <img src={record.image} alt="" />
           <ImageListItemBar
             title={record.name}
-            subtitle={
-              <span>
-                {record.width}x{record.height},{" "}
-                <NumberField
-                  source="price"
-                  record={record}
-                  color="inherit"
-                  options={{
-                    style: "currency",
-                    currency: "USD",
-                  }}
-                  sx={{
-                    display: "inline",
-                    fontSize: "1em",
-                  }}
-                />
-              </span>
-            }
             sx={{
               background:
                 "linear-gradient(to top, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.4) 70%,rgba(0,0,0,0) 100%)",
