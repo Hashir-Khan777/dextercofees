@@ -13,6 +13,7 @@ import {
   TextInput,
   useRecordContext,
   FileInput,
+  Create,
 } from "react-admin";
 import { RichTextInput } from "ra-input-rich-text";
 
@@ -79,108 +80,76 @@ const ProductEdit = () => {
   }, []);
 
   return (
-    <TabbedForm onSubmit={updateProduct} defaultValues={form}>
-      {/* <Edit> */}
-      <TabbedForm.Tab
-        label="resources.products.tabs.image"
-        sx={{ maxWidth: "40em" }}
-      >
-        {loading ? (
-          <CircularProgress />
-        ) : image ? (
-          <Box sx={{ position: "relative" }}>
+    <Create title="Update Product">
+      <TabbedForm onSubmit={updateProduct} defaultValues={form}>
+        <TabbedForm.Tab
+          label="resources.products.tabs.image"
+          sx={{ maxWidth: "40em" }}
+        >
+          {loading ? (
+            <CircularProgress />
+          ) : image ? (
+            <Box sx={{ position: "relative" }}>
+              <FileInput
+                source="image"
+                sx={{
+                  opacity: 0,
+                  position: "absolute",
+                  width: "100%",
+                  height: "100%",
+                }}
+                onChange={uploadImage}
+                fullWidth
+                validate={required()}
+              />
+              <img
+                src={image}
+                width="150px"
+                height="150px"
+                style={{ objectFit: "cover" }}
+              />
+            </Box>
+          ) : (
             <FileInput
               source="image"
-              sx={{
-                opacity: 0,
-                position: "absolute",
-                width: "100%",
-                height: "100%",
-              }}
               onChange={uploadImage}
               fullWidth
               validate={required()}
             />
-            <img
-              src={image}
-              width="150px"
-              height="150px"
-              style={{ objectFit: "cover" }}
-            />
-          </Box>
-        ) : (
-          <FileInput
-            source="image"
-            onChange={uploadImage}
-            fullWidth
-            validate={required()}
+          )}
+        </TabbedForm.Tab>
+        <TabbedForm.Tab
+          label="resources.products.tabs.details"
+          path="details"
+          sx={{ maxWidth: "40em" }}
+        >
+          <ProductEditDetails />
+        </TabbedForm.Tab>
+        <TabbedForm.Tab
+          label="resources.products.tabs.description"
+          path="description"
+        >
+          <RichTextInput
+            source="description"
+            label=""
+            validate={[required()]}
           />
-        )}
-      </TabbedForm.Tab>
-      <TabbedForm.Tab
-        label="resources.products.tabs.details"
-        path="details"
-        sx={{ maxWidth: "40em" }}
-      >
-        <ProductEditDetails />
-      </TabbedForm.Tab>
-      <TabbedForm.Tab
-        label="resources.products.tabs.description"
-        path="description"
-      >
-        <RichTextInput source="description" label="" validate={[required()]} />
-      </TabbedForm.Tab>
-      {/* <TabbedForm.Tab
-      label="resources.products.tabs.reviews"
-      count={
-        <ReferenceManyCount
-          reference="reviews"
-          target="product_id"
-          sx={{ lineHeight: "inherit" }}
-        />
-      }
-      path="reviews"
-    >
-      <ReferenceManyField
-        reference="reviews"
-        target="product_id"
-        pagination={<Pagination />}
-      >
-        <Datagrid
-          sx={{
-            width: "100%",
-            "& .column-comment": {
-              maxWidth: "20em",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
-            },
-          }}
-        >
-          <DateField source="date" />
-          <CustomerReferenceField />
-          <StarRatingField />
-          <TextField source="comment" />
-          <TextField source="status" />
-          <EditButton />
-        </Datagrid>
-      </ReferenceManyField>
-    </TabbedForm.Tab> */}
-      {/* </Edit> */}
-      <Snackbar
-        open={openSnackbar}
-        onClose={() => setOpenSnackbar(false)}
-        autoHideDuration={6000}
-      >
-        <Alert
+        </TabbedForm.Tab>
+        <Snackbar
+          open={openSnackbar}
           onClose={() => setOpenSnackbar(false)}
-          severity="success"
-          sx={{ width: "100%" }}
+          autoHideDuration={6000}
         >
-          Product has been updated!
-        </Alert>
-      </Snackbar>
-    </TabbedForm>
+          <Alert
+            onClose={() => setOpenSnackbar(false)}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            Product has been updated!
+          </Alert>
+        </Snackbar>
+      </TabbedForm>
+    </Create>
   );
 };
 
