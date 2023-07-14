@@ -21,6 +21,7 @@ const Product = ({ products, addToCartProduct, addToWishListProduct }) => {
     setOpen(true);
     setState(item);
   };
+
   return (
     <section className="product-area section-padding">
       <div className="container">
@@ -48,70 +49,80 @@ const Product = ({ products, addToCartProduct, addToWishListProduct }) => {
         <div className="product-wrap">
           <div className="row align-items-center justify-content-start">
             {products?.length > 0 &&
-              products?.map((product, pitem) => (
-                <div
-                  className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 shop-items"
-                  key={pitem}
-                >
-                  <div className="product-item">
-                    <div className="product-img p-3">
-                      <LazyLoadImage
-                        src={product.image}
-                        alt={product.name}
-                        effect="blur"
-                      />
-                      <ul>
-                        <li>
-                          <button
-                            data-bs-toggle="tooltip"
-                            data-bs-html="true"
-                            title="Add to Cart"
-                            onClick={() => addToCartProduct(product)}
-                          >
-                            <i className="fi flaticon-shopping-cart"></i>
-                          </button>
-                        </li>
-                        <li>
-                          <button
-                            data-bs-toggle="tooltip"
-                            data-bs-html="true"
-                            title="Quick View"
-                            onClick={() => handleClickOpen(product)}
-                          >
-                            <i className="fi ti-eye"></i>
-                          </button>
-                        </li>
-                        <li>
-                          <button
-                            data-bs-toggle="tooltip"
-                            data-bs-html="true"
-                            title="Add to Wishlist"
-                            onClick={() => addToWishListProduct(product)}
-                          >
-                            <i className="fi flaticon-like"></i>
-                          </button>
-                        </li>
-                      </ul>
-                      <div className="offer-thumb">
-                        <span>New</span>
-                      </div>
-                    </div>
-                    <div className="product-content">
-                      <h3 className="text-uppercase">
-                        <Link
-                          onClick={ClickHandler}
-                          to={`/product-single/${product._id}`}
-                        >
-                          {product.name}
-                        </Link>
-                      </h3>
-                      <div className="product-btm">
-                        <div className="product-price">
-                          <ul>
-                            <li>${product.price}</li>
-                          </ul>
+              products?.map((product, pitem) => {
+                const date = new Date();
+                const createdAt = new Date(product.createdAt);
+                const isNew =
+                  (date.getTime() - createdAt.getTime()) / 1000 / 60 / 60 <= 24;
+
+                return (
+                  <div
+                    className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 shop-items"
+                    key={pitem}
+                  >
+                    <div className="product-item">
+                      <div className="product-img p-3">
+                        <LazyLoadImage
+                          src={product.image}
+                          alt={product.name}
+                          effect="blur"
+                        />
+                        <ul>
+                          <li>
+                            <button
+                              data-bs-toggle="tooltip"
+                              data-bs-html="true"
+                              title="Add to Cart"
+                              onClick={() => addToCartProduct(product)}
+                            >
+                              <i className="fi flaticon-shopping-cart"></i>
+                            </button>
+                          </li>
+                          <li>
+                            <button
+                              data-bs-toggle="tooltip"
+                              data-bs-html="true"
+                              title="Quick View"
+                              onClick={() => handleClickOpen(product)}
+                            >
+                              <i className="fi ti-eye"></i>
+                            </button>
+                          </li>
+                          <li>
+                            <button
+                              data-bs-toggle="tooltip"
+                              data-bs-html="true"
+                              title="Add to Wishlist"
+                              onClick={() => addToWishListProduct(product)}
+                            >
+                              <i className="fi flaticon-like"></i>
+                            </button>
+                          </li>
+                        </ul>
+                        <div className="offer-thumb">
+                          {isNew ? (
+                            <span>New</span>
+                          ) : product.quantity <= 0 ? (
+                            <span>Out Of Stock</span>
+                          ) : null}
                         </div>
-                        {/* <div className="product-ratting">
+                      </div>
+                      <div className="product-content">
+                        <h3 className="text-uppercase">
+                          <Link
+                            onClick={ClickHandler}
+                            to={`/product-single/${product._id}`}
+                          >
+                            {product.name}
+                          </Link>
+                        </h3>
+                        <div className="product-btm">
+                          <div className="product-price">
+                            <ul>
+                              <li>${product.price}</li>
+                            </ul>
+                          </div>
+                          {/* <div className="product-ratting">
                           <ul>
                             <li>
                               <i className="fa fa-star" aria-hidden="true"></i>
@@ -130,11 +141,12 @@ const Product = ({ products, addToCartProduct, addToWishListProduct }) => {
                             </li>
                           </ul>
                         </div> */}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
           </div>
         </div>
       </div>

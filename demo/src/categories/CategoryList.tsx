@@ -83,6 +83,13 @@ const CategoryGrid = () => {
                     >
                       {inflection.humanize(record.email)}
                     </Typography>
+                    <Typography
+                      variant="subtitle1"
+                      component="h2"
+                      align="center"
+                    >
+                      {record.role}
+                    </Typography>
                   </CardContent>
                   <CardActions
                     sx={{
